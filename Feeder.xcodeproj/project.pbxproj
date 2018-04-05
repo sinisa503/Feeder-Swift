@@ -8,13 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		02B6849C20761215002A8BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6849B20761215002A8BD9 /* AppDelegate.swift */; };
-		02B6849E20761215002A8BD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6849D20761215002A8BD9 /* ViewController.swift */; };
+		02B6849E20761215002A8BD9 /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6849D20761215002A8BD9 /* FeedListViewController.swift */; };
 		02B684A120761215002A8BD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B6849F20761215002A8BD9 /* Main.storyboard */; };
 		02B684A420761215002A8BD9 /* Feeder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02B684A220761215002A8BD9 /* Feeder.xcdatamodeld */; };
 		02B684A620761216002A8BD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02B684A520761216002A8BD9 /* Assets.xcassets */; };
 		02B684A920761216002A8BD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B684A720761216002A8BD9 /* LaunchScreen.storyboard */; };
 		02B684B420761216002A8BD9 /* FeederTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684B320761216002A8BD9 /* FeederTests.swift */; };
 		02B684BF20761216002A8BD9 /* FeederUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684BE20761216002A8BD9 /* FeederUITests.swift */; };
+		02B684DA20761A92002A8BD9 /* InitialListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684D920761A92002A8BD9 /* InitialListBuilder.swift */; };
+		02B684DC20761AA1002A8BD9 /* FeedListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684DB20761AA1002A8BD9 /* FeedListRouter.swift */; };
+		02B684DE20761AAD002A8BD9 /* FeedListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684DD20761AAD002A8BD9 /* FeedListInteractor.swift */; };
+		02B684E020761AB9002A8BD9 /* FeedListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684DF20761AB9002A8BD9 /* FeedListPresenter.swift */; };
+		02B684E320761B54002A8BD9 /* FeedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684E220761B54002A8BD9 /* FeedListView.swift */; };
+		02B684E520761B69002A8BD9 /* FeedListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684E420761B69002A8BD9 /* FeedListWireframe.swift */; };
+		02B684E720761B7F002A8BD9 /* FeedListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684E620761B7F002A8BD9 /* FeedListUseCase.swift */; };
+		02B684E920761B8C002A8BD9 /* FeedListPesentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684E820761B8C002A8BD9 /* FeedListPesentation.swift */; };
+		02B684F12076485B002A8BD9 /* ViewPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684F02076485B002A8BD9 /* ViewPresentation.swift */; };
+		02B684F320764967002A8BD9 /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684F220764967002A8BD9 /* Wireframe.swift */; };
+		02B684F520764A0E002A8BD9 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684F420764A0E002A8BD9 /* UseCase.swift */; };
+		02FFCA5220765AB3004AA345 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FFCA5020765AB3004AA345 /* FeedTableViewCell.swift */; };
+		02FFCA5520765B56004AA345 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FFCA5420765B56004AA345 /* Constant.swift */; };
+		02FFCA5820766230004AA345 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FFCA5720766230004AA345 /* UIColor+Extension.swift */; };
+		02FFCA5B2076B4C8004AA345 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FFCA5A2076B4C8004AA345 /* FeedViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +52,7 @@
 /* Begin PBXFileReference section */
 		02B6849820761215002A8BD9 /* Feeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B6849B20761215002A8BD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		02B6849D20761215002A8BD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		02B6849D20761215002A8BD9 /* FeedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListViewController.swift; sourceTree = "<group>"; };
 		02B684A020761215002A8BD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02B684A320761215002A8BD9 /* Feeder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Feeder.xcdatamodel; sourceTree = "<group>"; };
 		02B684A520761216002A8BD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +64,21 @@
 		02B684BA20761216002A8BD9 /* FeederUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeederUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B684BE20761216002A8BD9 /* FeederUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeederUITests.swift; sourceTree = "<group>"; };
 		02B684C020761216002A8BD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02B684D920761A92002A8BD9 /* InitialListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialListBuilder.swift; sourceTree = "<group>"; };
+		02B684DB20761AA1002A8BD9 /* FeedListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListRouter.swift; sourceTree = "<group>"; };
+		02B684DD20761AAD002A8BD9 /* FeedListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListInteractor.swift; sourceTree = "<group>"; };
+		02B684DF20761AB9002A8BD9 /* FeedListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListPresenter.swift; sourceTree = "<group>"; };
+		02B684E220761B54002A8BD9 /* FeedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListView.swift; sourceTree = "<group>"; };
+		02B684E420761B69002A8BD9 /* FeedListWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListWireframe.swift; sourceTree = "<group>"; };
+		02B684E620761B7F002A8BD9 /* FeedListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListUseCase.swift; sourceTree = "<group>"; };
+		02B684E820761B8C002A8BD9 /* FeedListPesentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListPesentation.swift; sourceTree = "<group>"; };
+		02B684F02076485B002A8BD9 /* ViewPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentation.swift; sourceTree = "<group>"; };
+		02B684F220764967002A8BD9 /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
+		02B684F420764A0E002A8BD9 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		02FFCA5020765AB3004AA345 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		02FFCA5420765B56004AA345 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		02FFCA5720766230004AA345 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		02FFCA5A2076B4C8004AA345 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +129,12 @@
 		02B6849A20761215002A8BD9 /* Feeder */ = {
 			isa = PBXGroup;
 			children = (
-				02B6849B20761215002A8BD9 /* AppDelegate.swift */,
-				02B6849D20761215002A8BD9 /* ViewController.swift */,
-				02B6849F20761215002A8BD9 /* Main.storyboard */,
-				02B684A520761216002A8BD9 /* Assets.xcassets */,
-				02B684A720761216002A8BD9 /* LaunchScreen.storyboard */,
-				02B684AA20761216002A8BD9 /* Info.plist */,
-				02B684A220761215002A8BD9 /* Feeder.xcdatamodeld */,
+				02B684CE207617A2002A8BD9 /* Modules */,
+				02B684CD20761778002A8BD9 /* Persistance */,
+				02B684CC20761748002A8BD9 /* ConvFiles */,
+				02B684D0207617CB002A8BD9 /* Services */,
+				02B684CF207617C1002A8BD9 /* Managers */,
+				02FFCA56207661F3004AA345 /* Extension */,
 			);
 			path = Feeder;
 			sourceTree = "<group>";
@@ -126,6 +155,166 @@
 				02B684C020761216002A8BD9 /* Info.plist */,
 			);
 			path = FeederUITests;
+			sourceTree = "<group>";
+		};
+		02B684CC20761748002A8BD9 /* ConvFiles */ = {
+			isa = PBXGroup;
+			children = (
+				02FFCA5420765B56004AA345 /* Constant.swift */,
+				02B6849B20761215002A8BD9 /* AppDelegate.swift */,
+				02B684A520761216002A8BD9 /* Assets.xcassets */,
+				02B684A720761216002A8BD9 /* LaunchScreen.storyboard */,
+				02B6849F20761215002A8BD9 /* Main.storyboard */,
+				02B684AA20761216002A8BD9 /* Info.plist */,
+			);
+			path = ConvFiles;
+			sourceTree = "<group>";
+		};
+		02B684CD20761778002A8BD9 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				02B684A220761215002A8BD9 /* Feeder.xcdatamodeld */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
+		02B684CE207617A2002A8BD9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				02B684EA20762C73002A8BD9 /* BaseModule */,
+				02B684D1207617DC002A8BD9 /* InitialList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		02B684CF207617C1002A8BD9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		02B684D0207617CB002A8BD9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		02B684D1207617DC002A8BD9 /* InitialList */ = {
+			isa = PBXGroup;
+			children = (
+				02B684D62076182A002A8BD9 /* Builder */,
+				02B684D220761808002A8BD9 /* View */,
+				02B684D520761823002A8BD9 /* Router */,
+				02B684D420761819002A8BD9 /* Interactor */,
+				02B684D32076180F002A8BD9 /* Presenter */,
+			);
+			path = InitialList;
+			sourceTree = "<group>";
+		};
+		02B684D220761808002A8BD9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02FFCA592076B4A1004AA345 /* ViewModel */,
+				02B684D720761839002A8BD9 /* Layout */,
+				02B6849D20761215002A8BD9 /* FeedListViewController.swift */,
+				02B684E220761B54002A8BD9 /* FeedListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		02B684D32076180F002A8BD9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				02B684DF20761AB9002A8BD9 /* FeedListPresenter.swift */,
+				02B684E820761B8C002A8BD9 /* FeedListPesentation.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		02B684D420761819002A8BD9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				02B684DD20761AAD002A8BD9 /* FeedListInteractor.swift */,
+				02B684E620761B7F002A8BD9 /* FeedListUseCase.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		02B684D520761823002A8BD9 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				02B684DB20761AA1002A8BD9 /* FeedListRouter.swift */,
+				02B684E420761B69002A8BD9 /* FeedListWireframe.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		02B684D62076182A002A8BD9 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				02B684D920761A92002A8BD9 /* InitialListBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		02B684D720761839002A8BD9 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				02FFCA5020765AB3004AA345 /* FeedTableViewCell.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		02B684EA20762C73002A8BD9 /* BaseModule */ = {
+			isa = PBXGroup;
+			children = (
+				02B684EE207647FF002A8BD9 /* Interactor */,
+				02B684ED207647F8002A8BD9 /* Router */,
+				02B684EC20762C8A002A8BD9 /* Presentation */,
+			);
+			path = BaseModule;
+			sourceTree = "<group>";
+		};
+		02B684EC20762C8A002A8BD9 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				02B684F02076485B002A8BD9 /* ViewPresentation.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		02B684ED207647F8002A8BD9 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				02B684F220764967002A8BD9 /* Wireframe.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		02B684EE207647FF002A8BD9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				02B684F420764A0E002A8BD9 /* UseCase.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		02FFCA56207661F3004AA345 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				02FFCA5720766230004AA345 /* UIColor+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		02FFCA592076B4A1004AA345 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				02FFCA5A2076B4C8004AA345 /* FeedViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +448,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02B6849E20761215002A8BD9 /* ViewController.swift in Sources */,
+				02B684F12076485B002A8BD9 /* ViewPresentation.swift in Sources */,
+				02FFCA5220765AB3004AA345 /* FeedTableViewCell.swift in Sources */,
+				02B684E920761B8C002A8BD9 /* FeedListPesentation.swift in Sources */,
+				02FFCA5520765B56004AA345 /* Constant.swift in Sources */,
+				02FFCA5820766230004AA345 /* UIColor+Extension.swift in Sources */,
+				02B684E720761B7F002A8BD9 /* FeedListUseCase.swift in Sources */,
+				02B684E020761AB9002A8BD9 /* FeedListPresenter.swift in Sources */,
+				02B684E320761B54002A8BD9 /* FeedListView.swift in Sources */,
+				02FFCA5B2076B4C8004AA345 /* FeedViewModel.swift in Sources */,
+				02B684DA20761A92002A8BD9 /* InitialListBuilder.swift in Sources */,
+				02B684F320764967002A8BD9 /* Wireframe.swift in Sources */,
+				02B6849E20761215002A8BD9 /* FeedListViewController.swift in Sources */,
+				02B684DC20761AA1002A8BD9 /* FeedListRouter.swift in Sources */,
+				02B684E520761B69002A8BD9 /* FeedListWireframe.swift in Sources */,
 				02B684A420761215002A8BD9 /* Feeder.xcdatamodeld in Sources */,
+				02B684F520764A0E002A8BD9 /* UseCase.swift in Sources */,
 				02B6849C20761215002A8BD9 /* AppDelegate.swift in Sources */,
+				02B684DE20761AAD002A8BD9 /* FeedListInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +640,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ADN69MSHGQ;
-				INFOPLIST_FILE = Feeder/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Feeder/ConvFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,7 +658,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ADN69MSHGQ;
-				INFOPLIST_FILE = Feeder/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Feeder/ConvFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
