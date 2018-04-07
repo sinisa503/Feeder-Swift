@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InitialListTableViewCell" rowHeight="223" id="KGk-i7-Jjw" customClass="InitialListTableViewCell" customModule="Feeder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="732" height="223"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="732" height="222.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Oy2-ij-CJc">
+                        <rect key="frame" x="20" y="11" width="692" height="201"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T78-Au-BZJ">
+                                <rect key="frame" x="0.0" y="0.0" width="163" height="201"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="NLf-DU-dGO">
+                                <rect key="frame" x="179" y="0.0" width="513" height="201"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1P-4e-n4T">
+                                        <rect key="frame" x="0.0" y="0.0" width="513" height="42.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgn-KX-AXa">
+                                        <rect key="frame" x="0.0" y="42.5" width="513" height="158.5"/>
+                                        <string key="text">Lorem ipsum dolor sit amet, leo aliquam massa eleifend non fusce, quam ipsum tellus mauris ipsum, at augue mauris et eget sed morbi. Arcu wisi, nibh sed ligula aptent a, tincidunt diam sed gravida a, eu quis. Maecenas mauris morbi, per litora dolor aenean id odio at, nec nibh nec. Augue vitae sociis eleifend, class sed scelerisque sollicitudin erat, velit ut mauris phasellus velit, imperdiet diam eget ac ipsum, massa pellentesque iaculis nulla libero tortor. Suscipit id, ipsum etiam fusce, natoque massa tempus id, nam ipsum mattis elementum lorem non semper, quam wisi eu mattis. Nibh elit habitasse risus vel, pretium magna non quis sit, eros tortor dis nibh ad, aliquam a vestibulum nec in, urna aliquam quam molestie sociis tincidunt. Felis mauris quam semper mi nostra, orci urna nunc, erat maecenas sapien dictum. Urna ipsum mattis auctor, id amet dui semper sed. In pede tortor unde facilisis justo accumsan, lectus justo quis dolores donec, augue tristique varius diam non vel, tincidunt massa luctus gravida auctor, bibendum eleifend id sed. Et eu rutrum magna in commodo, nec nunc aliquet magna lectus lectus, vestibulum ac tortor in hac dignissimos morbi, lorem placerat id odio adipiscing mattis interdum. Luctus eros, nulla urna lorem volutpat sed fringilla.
+Eu arcu sit curabitur faucibus, dui eros nunc, convallis mattis, venenatis fringilla eros a lacinia, et dolor aliquam dignissim. Ornare non, metus iaculis lectus nunc, erat vel convallis id risus ultricies libero, fusce est sagittis. Mi libero ultricies, egestas nulla duis et, nunc vulputate vel parturient felis, et libero donec enim mauris at, sodales fusce. Et nunc lectus orci vel turpis mi, fames sociis id, suscipit mi quisque ullamcorper dictum magna, nulla sed lacinia id libero aenean, blandit ipsum. Vestibulum placerat aliquam nibh tincidunt elit posuere, sem sollicitudin maecenas, est nunc metus lacus posuere, blandit dis sapien justo, at mi molestie. Suspendisse pretium maecenas, rutrum vel enim, mollis mus scelerisque duis, tristique tincidunt est. Semper tempor velit justo vestibulum in ac, vel eu diam, libero et imperdiet congue, augue ornare quam at, in maecenas commodo sollicitudin nulla pede. Imperdiet eget mollis sollicitudin pede ultricies, cras convallis. At suspendisse, eget dolor varius, curae odio eu sapien wisi non augue, risus maecenas. Eleifend molestie quam eleifend pede, risus quis vitae tellus, duis wisi vivamus. Ligula et lectus erat maecenas integer phasellus, porta luctus a, consequat eros, bibendum justo aliquip felis tincidunt dapibus, vestibulum integer odio praesent ac pharetra.
+Aliquam aliquam mi donec, elit nulla ut lectus mauris, quibusdam dignissim massa amet, ante elit etiam augue ut nulla. Libero aenean amet et. Atque quis in sed, fermentum in nunc nunc sapien, tincidunt quam fringilla. Purus ac ipsum vestibulum, ante quisque tortor lectus eget justo, tempus nullam aliquam est, expedita nec lorem turpis in, sodales condimentum aliquam phasellus. Velit turpis pellentesque, non dui tristique nulla vel elit, suscipit est, adipisicing non egestas. Urna leo semper sapien imperdiet luctus elit, rhoncus praesent, id duis. Erat magna nunc vitae, ut pellentesque, blandit vel, facilisi libero fusce fermentum lectus cras. Vestibulum wisi tristique porta purus mauris, in torquent et sed ante purus at, ante viverra proin quis dignissimos tincidunt nec, sed vitae, vitae pellentesque ut donec donec blandit elementum. Dui at fusce, et rhoncus.
+Proin morbi pellentesque ipsa consectetuer quis, neque scelerisque vivamus duis in. Gravida commodo ante tempore dui ipsum porta, vel neque possimus, mattis sed risus dolor amet, ut cum. Ac pellentesque ultricies quam sed, turpis in in commodo a dictum, ut et mattis adipiscing nulla, elit interdum, risus congue hac hymenaeos. Feugiat nec, erat tincidunt, rhoncus semper lectus morbi, aenean morbi nulla ultricies a. Id nunc vehicula malesuada. Mauris nullam, a elit tempor lacus laoreet ultrices. Feugiat pariatur egestas donec sed amet. Leo placerat at lobortis quis imperdiet, tortor diam enim imperdiet ut. Lorem ante dui diam, curabitur eleifend lorem sit pellentesque, urna a. Nisl odio sed mauris, sit molestie ante, neque habitant et dui pulvinar duis lobortis, vehicula tempor ullamcorper, ultrices suscipit ut nunc faucibus et. Magna tristique placerat ut metus aut scelerisque, ridiculus erat, massa sed, tellus sed ligula quis. Eleifend iaculis consequat, purus odio ut quia eros urna ultricies, consectetuer suspendisse, laoreet et bibendum rutrum, donec non tempor sapien ac id.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Oy2-ij-CJc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="5QP-1U-23v"/>
+                    <constraint firstItem="Oy2-ij-CJc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="8Id-UJ-WPi"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Oy2-ij-CJc" secondAttribute="trailing" id="f6t-yd-dsz"/>
+                    <constraint firstItem="Oy2-ij-CJc" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="rk3-lB-xeh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="23" y="-18.5"/>
+        </tableViewCell>
+    </objects>
+</document>
