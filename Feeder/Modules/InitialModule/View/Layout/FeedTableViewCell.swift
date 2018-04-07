@@ -19,7 +19,7 @@ class FeedTableViewCell: UITableViewCell {
    }
    
    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-      super.init(style: style, reuseIdentifier: Constant.FeedTableViewCellIdentifier)
+      super.init(style: style, reuseIdentifier: Constant.FEED_TABLE_VIEW_CELL_IDENTIFIER)
       setUpOutlets()
    }
 

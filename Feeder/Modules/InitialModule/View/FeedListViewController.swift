@@ -20,7 +20,7 @@ class FeedListViewController: UITableViewController {
       super.viewDidLoad()
       
       presenter?.viewDidLoad()
-      tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: Constant.FeedTableViewCellIdentifier)
+      tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: Constant.FEED_TABLE_VIEW_CELL_IDENTIFIER)
       
       setFetchedResultsController()
       
@@ -103,7 +103,7 @@ class FeedListViewController: UITableViewController {
    
    //MARK: TableView Delegate & Datasource
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      if let cell = tableView.dequeueReusableCell(withIdentifier: Constant.FeedTableViewCellIdentifier, for: indexPath) as? FeedTableViewCell {
+      if let cell = tableView.dequeueReusableCell(withIdentifier: Constant.FEED_TABLE_VIEW_CELL_IDENTIFIER, for: indexPath) as? FeedTableViewCell {
          
 //         let defaultViewModel = FeedViewModel(title: Constant.DEFAULT_TITLE, story: Constant.DEFAULT_NEWS, image: Constant.DEFAULT_IMAGE_NAME)
 //         cell.configureCell(with: defaultViewModel)
@@ -126,7 +126,14 @@ class FeedListViewController: UITableViewController {
    }
 
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+      let feed = fetchedResultsController?.object(at: indexPath)
+      if let storiesArray = feed?.stories?.allObjects as? [Story] {
+         if let storiesVC = StoriesListBuilder.buildInitialListModule(with: storiesArray) {
+            storiesVC.title = feed?.title
+            self.navigationController?.pushViewController(storiesVC, animated: true)
+         }
+      }
+      
    }
 }
 

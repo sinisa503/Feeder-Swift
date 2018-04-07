@@ -71,12 +71,15 @@ class ParseManager {
       
       if let items = rssFeed.items {
          for item in items {
+            
+            //TODO: Implement item.link & image
+            
             let storyModel = StoryModel()
             storyModel.title = item.title
             storyModel.author = item.author
             storyModel.publishDate = item.pubDate
             storyModel.text = item.description
-            
+
             feedModel.stories.append(storyModel)
          }
       }
