@@ -16,8 +16,8 @@ extension Feed {
    static func addNew(feedModel:FeedModel,context:NSManagedObjectContext) -> Feed? {
       let request:NSFetchRequest<Feed> = Feed.fetchRequest()
       
-      if let url = feedModel.url {
-         request.predicate = NSPredicate(format: "url = %@", url)
+      if let uid = feedModel.uid {
+         request.predicate = NSPredicate(format: "\(CoreDataConstant.UINIQE_ID_PROPERTY) = %@", uid)
       }
       
       do {
@@ -32,6 +32,7 @@ extension Feed {
                newFeed.descr = feedModel.descr
                newFeed.publishDate = feedModel.publishDate
                newFeed.url = feedModel.url
+               newFeed.uid = feedModel.uid
                
                if feedModel.stories.count > 0 {
                   for storyModel in feedModel.stories {

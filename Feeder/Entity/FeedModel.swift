@@ -16,5 +16,5 @@ class FeedModel {
    var descr: String?
    var publishDate: Date?
    var stories: [StoryModel] = []
-   
+   var uid:String?
 }

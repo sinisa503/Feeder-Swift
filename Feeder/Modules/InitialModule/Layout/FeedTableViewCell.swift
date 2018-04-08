@@ -25,6 +25,7 @@ class FeedTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
     }
    
    public func configureCell(with model:Feed) {
@@ -42,7 +43,7 @@ class FeedTableViewCell: UITableViewCell {
    
    private func addStoryImageView() {
       
-      let imageViewWidth:CGFloat = Constant.cellHeight * 0.8
+      let imageViewWidth:CGFloat = Constant.cellHeight * 0.6
       
       self.addSubview(storyImageView)
       self.bringSubview(toFront: storyImageView)
@@ -59,6 +60,7 @@ class FeedTableViewCell: UITableViewCell {
       storyImageView.layer.cornerRadius = 8.0
       storyImageView.layer.masksToBounds = true
       storyImageView.contentMode = .scaleAspectFit
+      storyImageView.backgroundColor = UIColor.clear
    }
    
    private func addStoryLabels() {

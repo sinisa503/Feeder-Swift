@@ -5,8 +5,9 @@
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="publishDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="stories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Story" syncable="YES"/>
+        <relationship name="stories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Story" inverseName="feed" inverseEntity="Story" syncable="YES"/>
     </entity>
     <entity name="Story" representedClassName="Story" syncable="YES" codeGenerationType="class">
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,9 +15,12 @@
         <attribute name="publishDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Feed" inverseName="stories" inverseEntity="Feed" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Feed" positionX="-288" positionY="17" width="128" height="133"/>
-        <element name="Story" positionX="-54" positionY="27" width="128" height="118"/>
+        <element name="Feed" positionX="-288" positionY="17" width="128" height="148"/>
+        <element name="Story" positionX="-54" positionY="27" width="128" height="163"/>
     </elements>
 </model>

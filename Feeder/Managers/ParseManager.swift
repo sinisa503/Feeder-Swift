@@ -16,18 +16,19 @@ class ParseManager {
    
    func parse(url: URL, success:@escaping (Bool)->())  {
       if let parser = FeedParser(URL: url) {
-         let result = parser.parse()
-         if !result.isSuccess {
-            success(false)
-         }else {
-            saveFeedToDatabase(result)
+         parser.parseAsync { result in
+            if !result.isSuccess {
+               success(false)
+            }else {
+               self.parse(result)
+            }
          }
       }else {
          success(false)
       }
    }
    
-   private func saveFeedToDatabase(_ result:Result) {
+   private func parse(_ result:Result) {
       switch result {
       case .atom(let atomFeed) :
          parse(atomFeed)
@@ -46,15 +47,17 @@ class ParseManager {
       feedModel.imageUrl = atomFeed.logo
       feedModel.descr = atomFeed.subtitle?.value
       feedModel.publishDate = atomFeed.updated
+      feedModel.uid = atomFeed.id
       
       if let entries = atomFeed.entries {
          for entry in entries {
             let storyModel = StoryModel()
+            storyModel.uid = entry.id
             storyModel.title = entry.title
             storyModel.author = entry.authors?.first?.name
             storyModel.publishDate = entry.published
             storyModel.text = entry.content?.value
-            
+            storyModel.url = entry.links?.first?.attributes?.href
             feedModel.stories.append(storyModel)
          }
          save(feedModel: feedModel)
@@ -68,18 +71,17 @@ class ParseManager {
       feedModel.descr = rssFeed.description
       feedModel.publishDate = rssFeed.pubDate
       feedModel.imageUrl = rssFeed.image?.url
+      feedModel.uid = UUID.init().uuidString
       
       if let items = rssFeed.items {
          for item in items {
-            
-            //TODO: Implement item.link & image
-            
             let storyModel = StoryModel()
+            storyModel.uid = item.guid?.value
             storyModel.title = item.title
             storyModel.author = item.author
             storyModel.publishDate = item.pubDate
             storyModel.text = item.description
-
+            storyModel.url = item.link
             feedModel.stories.append(storyModel)
          }
       }
@@ -92,15 +94,18 @@ class ParseManager {
       feedModel.url = jsonFeed.feedUrl
       feedModel.descr = jsonFeed.description
       feedModel.imageUrl = jsonFeed.icon
+      feedModel.uid = jsonFeed.feedUrl
       
       if let items = jsonFeed.items {
          for item in items {
             let storyModel = StoryModel()
+            storyModel.uid = item.id
             storyModel.title = item.title
             storyModel.author = item.author?.name
             storyModel.publishDate = item.datePublished
             storyModel.text = item.contentText
-            
+            storyModel.imageLink = item.image
+            storyModel.url = item.url
             feedModel.stories.append(storyModel)
          }
       }

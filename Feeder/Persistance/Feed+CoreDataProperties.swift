@@ -2,7 +2,7 @@
 //  Feed+CoreDataProperties.swift
 //  
 //
-//  Created by Sinisa Vukovic on 06/04/2018.
+//  Created by Sinisa Vukovic on 08/04/2018.
 //
 //
 
@@ -16,11 +16,12 @@ extension Feed {
         return NSFetchRequest<Feed>(entityName: "Feed")
     }
 
+    @NSManaged public var descr: String?
+    @NSManaged public var image: NSData?
+    @NSManaged public var publishDate: NSDate?
     @NSManaged public var title: String?
     @NSManaged public var url: String?
-    @NSManaged public var image: NSData?
-    @NSManaged public var descr: String?
-    @NSManaged public var publishDate: NSDate?
+    @NSManaged public var uid: String?
     @NSManaged public var stories: NSSet?
 
 }

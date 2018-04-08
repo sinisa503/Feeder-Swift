@@ -22,6 +22,8 @@
 		0239D2E520796BA100F70FEF /* StoriesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239D2E420796BA100F70FEF /* StoriesListRouter.swift */; };
 		0239D2E720796BC700F70FEF /* StoriesListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239D2E620796BC700F70FEF /* StoriesListWireframe.swift */; };
 		0239D2E920796DB900F70FEF /* StoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239D2E820796DB900F70FEF /* StoryListTableViewCell.swift */; };
+		0239D2EE207A37DC00F70FEF /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239D2ED207A37DC00F70FEF /* WebViewViewController.swift */; };
+		0239D2F0207A393B00F70FEF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0239D2EF207A393B00F70FEF /* WebKit.framework */; };
 		026088E02077720C00DC57BC /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088DF2077720C00DC57BC /* ParseManager.swift */; };
 		026088EA2077BBAD00DC57BC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088E92077BBAD00DC57BC /* CoreDataManager.swift */; };
 		02B6849C20761215002A8BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6849B20761215002A8BD9 /* AppDelegate.swift */; };
@@ -84,6 +86,8 @@
 		0239D2E420796BA100F70FEF /* StoriesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListRouter.swift; sourceTree = "<group>"; };
 		0239D2E620796BC700F70FEF /* StoriesListWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListWireframe.swift; sourceTree = "<group>"; };
 		0239D2E820796DB900F70FEF /* StoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableViewCell.swift; sourceTree = "<group>"; };
+		0239D2ED207A37DC00F70FEF /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
+		0239D2EF207A393B00F70FEF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		026088DF2077720C00DC57BC /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		026088E92077BBAD00DC57BC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		02B6849820761215002A8BD9 /* Feeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0239D2F0207A393B00F70FEF /* WebKit.framework in Frameworks */,
 				A80A37B20044039C749945EF /* Pods_Feeder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +161,7 @@
 		0239D2CD207964A000F70FEF /* StoriesModule */ = {
 			isa = PBXGroup;
 			children = (
+				0239D2D32079661D00F70FEF /* Layout */,
 				0239D2CE207964F900F70FEF /* Builder */,
 				0239D2CF207965DC00F70FEF /* View */,
 				0239D2D0207965E400F70FEF /* Router */,
@@ -176,7 +182,6 @@
 		0239D2CF207965DC00F70FEF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0239D2D32079661D00F70FEF /* Layout */,
 				0239D2D62079672300F70FEF /* StoriesListViewController.swift */,
 				0239D2D82079678800F70FEF /* StoriesListView.swift */,
 			);
@@ -217,6 +222,22 @@
 				02B6849F20761215002A8BD9 /* Stories.storyboard */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		0239D2EA207A37A300F70FEF /* WebViewModule */ = {
+			isa = PBXGroup;
+			children = (
+				0239D2EB207A37AD00F70FEF /* ViewController */,
+			);
+			path = WebViewModule;
+			sourceTree = "<group>";
+		};
+		0239D2EB207A37AD00F70FEF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0239D2ED207A37DC00F70FEF /* WebViewViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		02B6848F20761215002A8BD9 = {
@@ -301,6 +322,7 @@
 				02B684EA20762C73002A8BD9 /* BaseModule */,
 				02B684D1207617DC002A8BD9 /* InitialModule */,
 				0239D2CD207964A000F70FEF /* StoriesModule */,
+				0239D2EA207A37A300F70FEF /* WebViewModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -325,6 +347,7 @@
 		02B684D1207617DC002A8BD9 /* InitialModule */ = {
 			isa = PBXGroup;
 			children = (
+				02B684D720761839002A8BD9 /* Layout */,
 				02B684D62076182A002A8BD9 /* Builder */,
 				02B684D220761808002A8BD9 /* View */,
 				02B684D520761823002A8BD9 /* Router */,
@@ -337,7 +360,6 @@
 		02B684D220761808002A8BD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				02B684D720761839002A8BD9 /* Layout */,
 				02B6849D20761215002A8BD9 /* FeedListViewController.swift */,
 				0239D2DA2079693C00F70FEF /* FeedListView.swift */,
 			);
@@ -441,6 +463,7 @@
 		44BA79C894C17A4E1AC40190 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0239D2EF207A393B00F70FEF /* WebKit.framework */,
 				11EE2AB5986986FDAF528DBD /* Pods_Feeder.framework */,
 				53B9FEDF479C4ACC765BE6FD /* Pods_FeederTests.framework */,
 				3E893B60B6473F2361C5D844 /* Pods_FeederUITests.framework */,
@@ -698,6 +721,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0239D2EE207A37DC00F70FEF /* WebViewViewController.swift in Sources */,
 				02B684F12076485B002A8BD9 /* ViewPresentation.swift in Sources */,
 				02FFCA5220765AB3004AA345 /* FeedTableViewCell.swift in Sources */,
 				02B684E920761B8C002A8BD9 /* FeedListPesentation.swift in Sources */,
@@ -908,6 +932,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ADN69MSHGQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Feeder/ConvFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -927,6 +952,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ADN69MSHGQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Feeder/ConvFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

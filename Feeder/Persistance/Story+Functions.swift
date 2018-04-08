@@ -15,8 +15,8 @@ extension Story {
    static func addNew(storyModel:StoryModel,for feed: Feed, context:NSManagedObjectContext) -> Story? {
       let request:NSFetchRequest<Story> = Story.fetchRequest()
       
-      if let title = storyModel.title {
-         request.predicate = NSPredicate(format: "title = %@", title)
+      if let uid = storyModel.uid {
+         request.predicate = NSPredicate(format: "\(CoreDataConstant.UINIQE_ID_PROPERTY) = %@", uid)
       }
       
       do {
@@ -31,6 +31,8 @@ extension Story {
                story.author = storyModel.author
                story.publishDate = storyModel.publishDate
                story.image = storyModel.image
+               story.url = storyModel.url
+               story.uid = storyModel.uid
                
                feed.addToStories(story)
             }

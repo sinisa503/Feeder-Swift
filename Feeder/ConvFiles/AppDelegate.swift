@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       
+      //Print path for sqlite database
+      print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
+      
       window = UIWindow(frame: UIScreen.main.bounds)
       
       let initialViewController = InitialListBuilder.buildInitialListModule()

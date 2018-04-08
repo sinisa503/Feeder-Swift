@@ -13,14 +13,15 @@ class StoriesListViewController: UIViewController {
    var presenter: StoriesListPresentation?
    var listOfStories:[Story]?
    
+   private var selectedStoryUrl:String?
+   
    @IBOutlet weak var tableView: UITableView!
    
-   override func viewDidLoad() {
-      super.viewDidLoad()
-      
-   }
-   
-   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if let webViewController = segue.destination as? WebViewViewController {
+         webViewController.url = selectedStoryUrl
+      }
+    }
 }
 
 extension StoriesListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -41,7 +42,12 @@ extension StoriesListViewController: UITableViewDelegate, UITableViewDataSource 
    }
    
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
+      if let storyList = listOfStories {
+         if let url = storyList[indexPath.row].url {
+            selectedStoryUrl = url
+         }
+         performSegue(withIdentifier: Constant.SHOW_STORY_SEGUEI, sender: self)
+      }
    }
    
 }

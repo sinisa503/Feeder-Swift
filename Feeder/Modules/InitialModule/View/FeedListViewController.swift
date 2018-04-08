@@ -93,12 +93,18 @@ class FeedListViewController: UITableViewController {
    private func saveFeed(url:String) {
       let parseManager = ParseManager()
       if let feedURL = URL(string: url) {
-         parseManager.parse(url: feedURL) { success in
+         parseManager.parse(url: feedURL) {[weak self] success in
             if !success {
-               print("Not possible to parse feed url!")
+               self?.showErrorAlert()
             }
          }
       }
+   }
+   
+   private func showErrorAlert() {
+      let alert = UIAlertController(title: "Error", message: "Not possible to load feed", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Ok", style: .default , handler:nil))
+      self.present(alert, animated: true, completion: nil)
    }
    
    //MARK: TableView Delegate & Datasource

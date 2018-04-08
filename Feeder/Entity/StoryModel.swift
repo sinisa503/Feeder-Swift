@@ -10,11 +10,12 @@ import Foundation
 
 class StoryModel {
    
+   var uid:String?
    var title: String?
    var author: String?
    var publishDate: Date?
    var image: Data?
    var text: String?
-   
-   
+   var url:String?
+   var imageLink:String?
 }
