@@ -15,16 +15,22 @@ class ParseManager {
    private let coreDataManager = CoreDataManager()
    
    func parse(url: URL, success:@escaping (Bool)->())  {
-      if let parser = FeedParser(URL: url) {
-         parser.parseAsync { result in
-            if !result.isSuccess {
+      DispatchQueue.global(qos: .userInitiated).async {
+         if let parser = FeedParser(URL: url) {
+            parser.parseAsync { result in
+               DispatchQueue.main.async {
+                  if !result.isSuccess {
+                     success(false)
+                  }else {
+                     self.parse(result)
+                  }
+               }
+            }
+         }else {
+            DispatchQueue.main.async {
                success(false)
-            }else {
-               self.parse(result)
             }
          }
-      }else {
-         success(false)
       }
    }
    

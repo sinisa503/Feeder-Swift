@@ -14,9 +14,13 @@ class DownloadService {
       do {
          DispatchQueue.global(qos: .background).async {
             if let imageData = try? Data(contentsOf: url) {
-               callback(imageData)
+               DispatchQueue.main.async {
+                  callback(imageData)
+               }
             }else {
-               callback(nil)
+               DispatchQueue.main.async {
+                  callback(nil)
+               }
             }
          }
       }
