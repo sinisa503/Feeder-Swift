@@ -12,14 +12,12 @@ class StoryListTableViewCell: UITableViewCell {
    
    @IBOutlet weak var storyImage: UIImageView!
    @IBOutlet weak var titleLabel: UILabel!
-   @IBOutlet weak var authorLabel: UILabel!
    @IBOutlet weak var dateLabel: UILabel!
    
    @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
    
    func configure(with story:Story) {
       titleLabel.text = story.title != nil ? story.title : ""
-      authorLabel.text = story.author != nil ? story.author : ""
 
       if let date = story.publishDate {
          let dateFormatter = DateFormatter()

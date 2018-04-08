@@ -46,23 +46,12 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="64M-rr-LHa">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fef-av-d2Q">
                                                             <rect key="frame" x="0.0" y="66" width="321" height="56"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81y-Or-0BC">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="160.5" height="56"/>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fef-av-d2Q">
-                                                                    <rect key="frame" x="160.5" y="0.0" width="160.5" height="56"/>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -80,7 +69,6 @@
                                             <constraint firstItem="c6B-K4-Zad" firstAttribute="width" relation="lessThanOrEqual" secondItem="Kdn-bK-egJ" secondAttribute="width" multiplier="0.2" id="gvb-dR-zOu"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="authorLabel" destination="81y-Or-0BC" id="izz-ca-I15"/>
                                             <outlet property="dateLabel" destination="Fef-av-d2Q" id="pef-Wu-EAY"/>
                                             <outlet property="imageWidthConstraint" destination="uFM-Fr-Nr8" id="eeJ-Vd-Ter"/>
                                             <outlet property="storyImage" destination="c6B-K4-Zad" id="qHJ-hb-eqK"/>
