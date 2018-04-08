@@ -40,29 +40,23 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="TVS-Sr-mp1">
                                                     <rect key="frame" x="31" y="19" width="321" height="122"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="wjY-7f-RHi">
-                                                            <rect key="frame" x="0.0" y="0.0" width="321" height="46"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="X7R-CV-6GS">
-                                                            <rect key="frame" x="0.0" y="46" width="321" height="38"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="wjY-7f-RHi">
+                                                            <rect key="frame" x="0.0" y="0.0" width="321" height="66"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="64M-rr-LHa">
-                                                            <rect key="frame" x="0.0" y="84" width="321" height="38"/>
+                                                            <rect key="frame" x="0.0" y="66" width="321" height="56"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81y-Or-0BC">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="160.5" height="38"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="160.5" height="56"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fef-av-d2Q">
-                                                                    <rect key="frame" x="160.5" y="0.0" width="160.5" height="38"/>
+                                                                    <rect key="frame" x="160.5" y="0.0" width="160.5" height="56"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -88,7 +82,6 @@
                                         <connections>
                                             <outlet property="authorLabel" destination="81y-Or-0BC" id="izz-ca-I15"/>
                                             <outlet property="dateLabel" destination="Fef-av-d2Q" id="pef-Wu-EAY"/>
-                                            <outlet property="descriptionLabel" destination="X7R-CV-6GS" id="Adk-gc-Fpy"/>
                                             <outlet property="imageWidthConstraint" destination="uFM-Fr-Nr8" id="eeJ-Vd-Ter"/>
                                             <outlet property="storyImage" destination="c6B-K4-Zad" id="qHJ-hb-eqK"/>
                                             <outlet property="titleLabel" destination="wjY-7f-RHi" id="ggN-td-M9G"/>

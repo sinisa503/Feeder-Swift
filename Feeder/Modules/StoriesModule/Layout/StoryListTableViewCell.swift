@@ -12,7 +12,6 @@ class StoryListTableViewCell: UITableViewCell {
    
    @IBOutlet weak var storyImage: UIImageView!
    @IBOutlet weak var titleLabel: UILabel!
-   @IBOutlet weak var descriptionLabel: UILabel!
    @IBOutlet weak var authorLabel: UILabel!
    @IBOutlet weak var dateLabel: UILabel!
    
@@ -20,7 +19,6 @@ class StoryListTableViewCell: UITableViewCell {
    
    func configure(with story:Story) {
       titleLabel.text = story.title != nil ? story.title : ""
-      descriptionLabel.text = story.text != nil ? story.text : ""
       authorLabel.text = story.author != nil ? story.author : ""
 
       if let date = story.publishDate {
