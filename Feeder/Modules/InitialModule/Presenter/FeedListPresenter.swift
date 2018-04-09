@@ -9,7 +9,9 @@
 import UIKit
 
 class FeedListPresenter: FeedListPesentation {
-   weak var viewController: UIViewController?
+   var viewController: FeedListView?
+   var router: FeedListWireframe?
+   var interactor:FeedListUseCase?
    
    func viewDidLoad() {
       
@@ -21,5 +23,17 @@ class FeedListPresenter: FeedListPesentation {
    
    func viewWillDisapear() {
       
+   }
+   
+   func show(storiesVC: StoriesListViewController) {
+      router?.show(storiesVC: storiesVC)
+   }
+   
+   func saveFeed(url:String) {
+      interactor?.saveFeed(url: url)
+   }
+   
+   func showErrorAlert() {
+      viewController?.showErrorAlert()
    }
 }

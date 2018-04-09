@@ -9,5 +9,16 @@
 import Foundation
 
 class FeedListInteractor: FeedListUseCase {
-   var presenter: ViewPresentation?
+   var presenter: FeedListPesentation?
+   
+    func saveFeed(url:String) {
+      let parseManager = ParseManager()
+      if let feedURL = URL(string: url) {
+         parseManager.parse(url: feedURL) {[weak self] success in
+            if !success {
+               self?.presenter?.showErrorAlert()
+            }
+         }
+      }
+   }
 }

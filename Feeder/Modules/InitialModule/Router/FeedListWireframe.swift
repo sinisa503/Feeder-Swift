@@ -10,4 +10,5 @@ import Foundation
 
 protocol FeedListWireframe: Wireframe {
    
+   func show(storiesVC: StoriesListViewController)
 }

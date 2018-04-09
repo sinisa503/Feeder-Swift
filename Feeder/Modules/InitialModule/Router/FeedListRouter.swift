@@ -12,4 +12,7 @@ class FeedListRouter: FeedListWireframe {
    var viewController: UIViewController?
    
    
+   func show(storiesVC: StoriesListViewController) {
+      self.viewController?.navigationController?.pushViewController(storiesVC, animated: true)
+   }
 }

@@ -10,4 +10,13 @@ import Foundation
 
 protocol FeedListPesentation: ViewPresentation {
    
+   //Interactor
+   func saveFeed(url:String)
+   
+   //Router
+   func show(storiesVC: StoriesListViewController)
+   
+   //View
+   func showErrorAlert()
+   
 }

@@ -18,21 +18,11 @@ class FeedListViewController: UITableViewController {
    //MARK: ViewController lifecycle
    override func viewDidLoad() {
       super.viewDidLoad()
-      
       presenter?.viewDidLoad()
+      
       tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: Constant.FEED_TABLE_VIEW_CELL_IDENTIFIER)
       
       setFetchedResultsController()
-      
-   }
-   
-   func testAddingImageToCoreData() {
-      if let data = UIImagePNGRepresentation(UIImage(named: "mountain")!) {
-         let manager = CoreDataManager()
-         if let feed = fetchedResultsController?.fetchedObjects?.last {
-            manager.add(imageData: data, for: feed, context: (fetchedResultsController?.managedObjectContext)!)
-         }
-      }
    }
    
    override func viewWillAppear(_ animated: Bool) {
@@ -84,35 +74,16 @@ class FeedListViewController: UITableViewController {
       
       actionViewController.addAction(UIAlertAction(title: "Save", style: .default , handler: { (action) in
          if let urlTextField = actionViewController.textFields?.first, let url = urlTextField.text {
-            self.saveFeed(url: url)
+            self.presenter?.saveFeed(url: url)
          }
       }) )
       self.present(actionViewController, animated: true, completion: nil)
    }
    
-   private func saveFeed(url:String) {
-      let parseManager = ParseManager()
-      if let feedURL = URL(string: url) {
-         parseManager.parse(url: feedURL) {[weak self] success in
-            if !success {
-               self?.showErrorAlert()
-            }
-         }
-      }
-   }
-   
-   private func showErrorAlert() {
-      let alert = UIAlertController(title: "Error", message: "Not possible to load feed", preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "Ok", style: .default , handler:nil))
-      self.present(alert, animated: true, completion: nil)
-   }
-   
    //MARK: TableView Delegate & Datasource
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       if let cell = tableView.dequeueReusableCell(withIdentifier: Constant.FEED_TABLE_VIEW_CELL_IDENTIFIER, for: indexPath) as? FeedTableViewCell {
-         
-//         let defaultViewModel = FeedViewModel(title: Constant.DEFAULT_TITLE, story: Constant.DEFAULT_NEWS, image: Constant.DEFAULT_IMAGE_NAME)
-//         cell.configureCell(with: defaultViewModel)
+
          if let feed = fetchedResultsController?.object(at: indexPath) {
             cell.configureCell(with: feed)
          }
@@ -136,17 +107,26 @@ class FeedListViewController: UITableViewController {
       if let storiesArray = feed?.stories?.allObjects as? [Story] {
          if let storiesVC = StoriesListBuilder.buildInitialListModule(with: storiesArray) {
             storiesVC.title = feed?.title
-            self.navigationController?.pushViewController(storiesVC, animated: true)
+            presenter?.show(storiesVC: storiesVC)
          }
       }
-      
    }
+   
 }
 
 extension FeedListViewController : NSFetchedResultsControllerDelegate {
    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
 
       tableView.reloadData()
+   }
+}
+
+extension FeedListViewController: FeedListView {
+   
+   func showErrorAlert() {
+      let alert = UIAlertController(title: "Error", message: "Not possible to load feed", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Ok", style: .default , handler:nil))
+      self.present(alert, animated: true, completion: nil)
    }
 }
 

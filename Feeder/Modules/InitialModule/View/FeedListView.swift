@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol FeedListView: ViewPresentation {
+protocol FeedListView {
    
    var presenter: FeedListPesentation? { get set }
+   func showErrorAlert()
 }

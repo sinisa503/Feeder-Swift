@@ -20,6 +20,8 @@ class InitialListBuilder {
       
       viewController.presenter = presenter
       presenter.viewController = viewController
+      presenter.router = router
+      presenter.interactor = interactor
       router.viewController = viewController
       interactor.presenter = presenter
       
