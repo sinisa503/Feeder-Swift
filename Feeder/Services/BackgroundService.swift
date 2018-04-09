@@ -13,16 +13,24 @@ class BackgroundService {
    
    private let parseManager = ParseManager()
    
-   func checkForNewUpdates(context:NSManagedObjectContext) {
+   /**Additional property refreshingFeed optional is only made
+    for testing purpose and should only be called if making tests**/
+   func checkUpdates(context:NSManagedObjectContext, refreshedFeed:FeedModel? = nil) {
       let coreDataManager = CoreDataManager(context: context)
       if let allFeeds = coreDataManager.getAllFeeds() {
          for databaseFeed in allFeeds {
-            guard let feedUrl = databaseFeed.url, let url = URL(string: feedUrl) else { continue }
-            parseManager.parse(url: url) { refreshedFeed in
-               guard let oldDate = databaseFeed.publishDate, let newDate = refreshedFeed?.publishDate else { return }
-               if oldDate < newDate {
-                  if let feed = refreshedFeed {
-                     self.refreshFeed(feed: feed, context: context)
+            if let allStoriesIds = databaseFeed.stories?.allObjects as? [Story] {
+               guard let feedUrl = databaseFeed.url, let url = URL(string: feedUrl) else { continue }
+               let uniqueIds = allUniqueIdsFrom(stories: allStoriesIds)
+               if refreshedFeed != nil {
+                  if refreshedFeed?.uid == databaseFeed.uid {
+                     store(refreshedFeed: refreshedFeed, uniqueIds: uniqueIds, for: databaseFeed, coreDataManager: coreDataManager)
+                  }
+               }else {
+                  parseManager.parse(url: url) { refreshedFeed in
+                     if refreshedFeed?.uid == databaseFeed.uid {
+                        self.store(refreshedFeed: refreshedFeed, uniqueIds: uniqueIds, for: databaseFeed, coreDataManager: coreDataManager)
+                     }
                   }
                }
             }
@@ -30,8 +38,28 @@ class BackgroundService {
       }
    }
    
-   private func refreshFeed(feed:FeedModel,context:NSManagedObjectContext) {
-      let coreDataManager = CoreDataManager(context: context)
-      coreDataManager.refresh(feed: feed)
+   private func allUniqueIdsFrom(stories:[Story]) -> [String] {
+      var uniqueIds:[String] = []
+      for story in stories {
+         if let uid = story.uid {
+            uniqueIds.append(uid)
+         }
+      }
+      return uniqueIds
+   }
+   
+   private func store(refreshedFeed:FeedModel?, uniqueIds:[String], for databaseFeed:Feed,coreDataManager:CoreDataManager) {
+      let newStories = refreshedFeed?.stories.filter({ (storyModel) -> Bool in
+         if let uid = storyModel.uid {
+            return !uniqueIds.contains(uid)
+         }else {
+            return false
+         }
+      })
+      if let newStories = newStories, newStories.count > 0 {
+         for story in newStories {
+            coreDataManager.add(storyModel: story, for: databaseFeed)
+         }
+      }
    }
 }

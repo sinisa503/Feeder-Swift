@@ -83,7 +83,7 @@ class ParseManager {
       feedModel.descr = rssFeed.description
       feedModel.publishDate = rssFeed.lastBuildDate
       feedModel.imageUrl = rssFeed.image?.url
-      feedModel.uid = UUID.init().uuidString
+      feedModel.uid = feedUrl
       
       if let items = rssFeed.items {
          for item in items {

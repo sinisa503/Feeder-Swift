@@ -36,7 +36,7 @@ extension Feed {
                
                if feedModel.stories.count > 0 {
                   for storyModel in feedModel.stories {
-                     _ = Story.addNew(storyModel: storyModel, for: newFeed, context: context)
+                     Story.addNew(storyModel: storyModel, for: newFeed, context: context)
                   }
                }
                try context.save()

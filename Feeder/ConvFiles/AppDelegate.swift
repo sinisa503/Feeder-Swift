@@ -37,7 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
       
       let backgroundService = BackgroundService()
-      backgroundService.checkForNewUpdates(context: self.persistentContainer.viewContext)
+      backgroundService.checkUpdates(context: self.persistentContainer.viewContext)
+      //Tell the system that background fetch is performed
+      completionHandler(.newData)
    }
 
    func applicationWillResignActive(_ application: UIApplication) {

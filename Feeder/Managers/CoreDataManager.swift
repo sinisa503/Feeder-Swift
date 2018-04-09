@@ -64,10 +64,34 @@ class CoreDataManager {
       }
    }
    
+   func add(storyModel:StoryModel, for feed:Feed) {
+       Story.addNew(storyModel: storyModel, for: feed, context: context)
+   }
+   
    func getStory(with uid:String?, or title:String?) -> Story? {
       let request:NSFetchRequest<Story> = Story.fetchRequest()
       var predicate:NSPredicate?
 
+      if let uid = uid {
+         predicate = NSPredicate(format: "\(CoreDataConstant.UINIQE_ID_PROPERTY) == %@", uid)
+      }
+      request.predicate = predicate
+      
+      do {
+         let results = try context.fetch(request)
+         if results.count > 0 {
+            return results.first
+         }
+      } catch  {
+         //TODO: Handle error
+      }
+      return nil
+   }
+   
+   func getFeedWith(uid:String?) -> Feed? {
+      let request:NSFetchRequest<Feed> = Feed.fetchRequest()
+      var predicate:NSPredicate?
+      
       if let uid = uid {
          predicate = NSPredicate(format: "\(CoreDataConstant.UINIQE_ID_PROPERTY) == %@", uid)
       }
@@ -92,14 +116,16 @@ class CoreDataManager {
       }
    }
    
-   func refresh(feed:FeedModel) {
-         Feed.refresh(feedModel: feed, context: context) { success in
-            if success {
-               print("Feed refreshed")
-            }else {
-               print("Feed not refreshed")
-            }
+   func deleteAllFeeds(context:NSManagedObjectContext) {
+      let request:NSFetchRequest<Feed> = Feed.fetchRequest()
+      do {
+         let feeds = try context.fetch(request)
+         for feed in feeds {
+            context.delete(feed)
          }
+         try context.save()
+      } catch  {
+         
+      }
    }
-
 }

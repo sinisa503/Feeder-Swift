@@ -34,7 +34,7 @@
 		02B684A420761215002A8BD9 /* Feeder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02B684A220761215002A8BD9 /* Feeder.xcdatamodeld */; };
 		02B684A620761216002A8BD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02B684A520761216002A8BD9 /* Assets.xcassets */; };
 		02B684A920761216002A8BD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B684A720761216002A8BD9 /* LaunchScreen.storyboard */; };
-		02B684B420761216002A8BD9 /* FeederTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684B320761216002A8BD9 /* FeederTests.swift */; };
+		02B684B420761216002A8BD9 /* ServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684B320761216002A8BD9 /* ServicesTests.swift */; };
 		02B684BF20761216002A8BD9 /* FeederUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684BE20761216002A8BD9 /* FeederUITests.swift */; };
 		02B684DA20761A92002A8BD9 /* InitialListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684D920761A92002A8BD9 /* InitialListBuilder.swift */; };
 		02B684DC20761AA1002A8BD9 /* FeedListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B684DB20761AA1002A8BD9 /* FeedListRouter.swift */; };
@@ -103,7 +103,7 @@
 		02B684A820761216002A8BD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02B684AA20761216002A8BD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02B684AF20761216002A8BD9 /* FeederTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeederTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		02B684B320761216002A8BD9 /* FeederTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeederTests.swift; sourceTree = "<group>"; };
+		02B684B320761216002A8BD9 /* ServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTests.swift; sourceTree = "<group>"; };
 		02B684B520761216002A8BD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02B684BA20761216002A8BD9 /* FeederUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeederUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B684BE20761216002A8BD9 /* FeederUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeederUITests.swift; sourceTree = "<group>"; };
@@ -283,8 +283,8 @@
 		02B684B220761216002A8BD9 /* FeederTests */ = {
 			isa = PBXGroup;
 			children = (
-				02B684B320761216002A8BD9 /* FeederTests.swift */,
 				025236F6207B5AB10029DC22 /* CoreDataTests.swift */,
+				02B684B320761216002A8BD9 /* ServicesTests.swift */,
 				02B684B520761216002A8BD9 /* Info.plist */,
 			);
 			path = FeederTests;
@@ -768,7 +768,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				025236F7207B5AB10029DC22 /* CoreDataTests.swift in Sources */,
-				02B684B420761216002A8BD9 /* FeederTests.swift in Sources */,
+				02B684B420761216002A8BD9 /* ServicesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
