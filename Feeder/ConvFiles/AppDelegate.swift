@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       
       //Print path for sqlite database
-      print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
+//      print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
       
       window = UIWindow(frame: UIScreen.main.bounds)
       
@@ -27,7 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       window?.rootViewController = initialViewController
       window?.makeKeyAndVisible()
       
+      //Background refresh time
+      UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+      
       return true
+   }
+   
+   // Support for background fetch
+   func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+      
+      let backgroundService = BackgroundService()
+      backgroundService.checkForNewUpdates(context: self.persistentContainer.viewContext)
    }
 
    func applicationWillResignActive(_ application: UIApplication) {

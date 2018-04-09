@@ -2,16 +2,16 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Feeder/Persistance/Feed+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Feeder/Persistance/Feed+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:Feeder/Persistance/Story+CoreDataClass.swift">
    </FileRef>
    <FileRef
       location = "group:Feeder/Persistance/Story+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Feeder/Persistance/Feed+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Feeder/Persistance/Feed+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:Feeder.xcodeproj">

@@ -6,47 +6,52 @@
 //  Copyright © 2018 Sinisa Vukovic. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import FeedKit
 
 
 class ParseManager {
    
-   private let coreDataManager = CoreDataManager()
+   let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+   private var feedUrl:String?
    
-   func parse(url: URL, success:@escaping (Bool)->())  {
+   func parse(url: URL, success:@escaping (FeedModel?)->())  {
+      feedUrl = url.absoluteString
       DispatchQueue.global(qos: .userInitiated).async {
          if let parser = FeedParser(URL: url) {
             parser.parseAsync { result in
                DispatchQueue.main.async {
                   if !result.isSuccess {
-                     success(false)
+                     success(nil)
                   }else {
-                     self.parse(result)
+                     success(self.parse(result))
                   }
                }
             }
          }else {
             DispatchQueue.main.async {
-               success(false)
+               success(nil)
             }
          }
       }
    }
    
-   private func parse(_ result:Result) {
+   private func parse(_ result:Result) -> FeedModel? {
+      var feedModel:FeedModel?
       switch result {
       case .atom(let atomFeed) :
-         parse(atomFeed)
+         feedModel = parse(atomFeed)
       case .rss(let rssFeed) :
-         parse(rssFeed)
+         feedModel = parse(rssFeed)
       case .json(let jsonFeed) :
-         parse(jsonFeed)
-      case .failure(_) : break
+         feedModel = parse(jsonFeed)
+      case .failure(_) :
+         feedModel = nil
       }
+      return feedModel
    }
    
-   private func parse(_ atomFeed: AtomFeed) {
+   private func parse(_ atomFeed: AtomFeed) -> FeedModel {
       let feedModel:FeedModel = FeedModel()
       
       feedModel.title = atomFeed.title
@@ -54,6 +59,7 @@ class ParseManager {
       feedModel.descr = atomFeed.subtitle?.value
       feedModel.publishDate = atomFeed.updated
       feedModel.uid = atomFeed.id
+      feedModel.url = feedUrl
       
       if let entries = atomFeed.entries {
          for entry in entries {
@@ -61,21 +67,21 @@ class ParseManager {
             storyModel.uid = entry.id
             storyModel.title = entry.title
             storyModel.author = entry.authors?.first?.name
-            storyModel.publishDate = entry.published
+            storyModel.publishDate = entry.updated
             storyModel.text = entry.content?.value
             storyModel.url = entry.links?.first?.attributes?.href
             feedModel.stories.append(storyModel)
          }
-         save(feedModel: feedModel)
       }
+      return feedModel
    }
    
-   private func parse(_ rssFeed: RSSFeed) {
+   private func parse(_ rssFeed: RSSFeed) -> FeedModel {
       let feedModel:FeedModel = FeedModel()
       feedModel.title = rssFeed.title
-      feedModel.url = rssFeed.link
+      feedModel.url = feedUrl
       feedModel.descr = rssFeed.description
-      feedModel.publishDate = rssFeed.pubDate
+      feedModel.publishDate = rssFeed.lastBuildDate
       feedModel.imageUrl = rssFeed.image?.url
       feedModel.uid = UUID.init().uuidString
       
@@ -91,13 +97,13 @@ class ParseManager {
             feedModel.stories.append(storyModel)
          }
       }
-      save(feedModel: feedModel)
+      return feedModel
    }
    
-   private func parse(_ jsonFeed: JSONFeed) {
+   private func parse(_ jsonFeed: JSONFeed) -> FeedModel {
       let feedModel:FeedModel = FeedModel()
       feedModel.title = jsonFeed.title
-      feedModel.url = jsonFeed.feedUrl
+      feedModel.url = feedUrl
       feedModel.descr = jsonFeed.description
       feedModel.imageUrl = jsonFeed.icon
       feedModel.uid = jsonFeed.feedUrl
@@ -115,10 +121,6 @@ class ParseManager {
             feedModel.stories.append(storyModel)
          }
       }
-      save(feedModel: feedModel)
-   }
-   
-   private func save(feedModel:FeedModel) {
-      coreDataManager.addNew(feedModel: feedModel)
+      return feedModel
    }
 }

@@ -25,6 +25,7 @@
 		0239D2EE207A37DC00F70FEF /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239D2ED207A37DC00F70FEF /* WebViewViewController.swift */; };
 		0239D2F0207A393B00F70FEF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0239D2EF207A393B00F70FEF /* WebKit.framework */; };
 		025236F7207B5AB10029DC22 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025236F6207B5AB10029DC22 /* CoreDataTests.swift */; };
+		025236F9207B785B0029DC22 /* BackgroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025236F8207B785B0029DC22 /* BackgroundService.swift */; };
 		026088E02077720C00DC57BC /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088DF2077720C00DC57BC /* ParseManager.swift */; };
 		026088EA2077BBAD00DC57BC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088E92077BBAD00DC57BC /* CoreDataManager.swift */; };
 		02B6849C20761215002A8BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6849B20761215002A8BD9 /* AppDelegate.swift */; };
@@ -90,6 +91,7 @@
 		0239D2ED207A37DC00F70FEF /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		0239D2EF207A393B00F70FEF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		025236F6207B5AB10029DC22 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
+		025236F8207B785B0029DC22 /* BackgroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundService.swift; sourceTree = "<group>"; };
 		026088DF2077720C00DC57BC /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		026088E92077BBAD00DC57BC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		02B6849820761215002A8BD9 /* Feeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -343,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				0239D2CB2078E31A00F70FEF /* DownloadService.swift */,
+				025236F8207B785B0029DC22 /* BackgroundService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -560,6 +563,11 @@
 				TargetAttributes = {
 					02B6849720761215002A8BD9 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					02B684AE20761216002A8BD9 = {
 						CreatedOnToolsVersion = 9.3;
@@ -627,14 +635,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Feeder/Pods-Feeder-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -667,14 +671,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FeederTests/Pods-FeederTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -727,6 +727,7 @@
 				0239D2EE207A37DC00F70FEF /* WebViewViewController.swift in Sources */,
 				02B684F12076485B002A8BD9 /* ViewPresentation.swift in Sources */,
 				02FFCA5220765AB3004AA345 /* FeedTableViewCell.swift in Sources */,
+				025236F9207B785B0029DC22 /* BackgroundService.swift in Sources */,
 				02B684E920761B8C002A8BD9 /* FeedListPesentation.swift in Sources */,
 				0239D2E320796B0000F70FEF /* StoriesListInteractor.swift in Sources */,
 				02FFCA5520765B56004AA345 /* Constant.swift in Sources */,

@@ -2,7 +2,7 @@
 //  Story+CoreDataProperties.swift
 //  
 //
-//  Created by Sinisa Vukovic on 08/04/2018.
+//  Created by Sinisa Vukovic on 09/04/2018.
 //
 //
 
@@ -21,8 +21,8 @@ extension Story {
     @NSManaged public var publishDate: NSDate?
     @NSManaged public var text: String?
     @NSManaged public var title: String?
-    @NSManaged public var url: String?
     @NSManaged public var uid: String?
+    @NSManaged public var url: String?
     @NSManaged public var feed: Feed?
 
 }
