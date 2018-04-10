@@ -26,6 +26,7 @@
 		0239D2F0207A393B00F70FEF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0239D2EF207A393B00F70FEF /* WebKit.framework */; };
 		025236F7207B5AB10029DC22 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025236F6207B5AB10029DC22 /* CoreDataTests.swift */; };
 		025236F9207B785B0029DC22 /* BackgroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025236F8207B785B0029DC22 /* BackgroundService.swift */; };
+		025236FB207C9C980029DC22 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025236FA207C9C980029DC22 /* NotificationService.swift */; };
 		026088E02077720C00DC57BC /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088DF2077720C00DC57BC /* ParseManager.swift */; };
 		026088EA2077BBAD00DC57BC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088E92077BBAD00DC57BC /* CoreDataManager.swift */; };
 		02B6849C20761215002A8BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6849B20761215002A8BD9 /* AppDelegate.swift */; };
@@ -92,6 +93,7 @@
 		0239D2EF207A393B00F70FEF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		025236F6207B5AB10029DC22 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		025236F8207B785B0029DC22 /* BackgroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundService.swift; sourceTree = "<group>"; };
+		025236FA207C9C980029DC22 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		026088DF2077720C00DC57BC /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		026088E92077BBAD00DC57BC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		02B6849820761215002A8BD9 /* Feeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -346,6 +348,7 @@
 			children = (
 				0239D2CB2078E31A00F70FEF /* DownloadService.swift */,
 				025236F8207B785B0029DC22 /* BackgroundService.swift */,
+				025236FA207C9C980029DC22 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				02B684E920761B8C002A8BD9 /* FeedListPesentation.swift in Sources */,
 				0239D2E320796B0000F70FEF /* StoriesListInteractor.swift in Sources */,
 				02FFCA5520765B56004AA345 /* Constant.swift in Sources */,
+				025236FB207C9C980029DC22 /* NotificationService.swift in Sources */,
 				02FFCA5820766230004AA345 /* UIColor+Extension.swift in Sources */,
 				02B684E720761B7F002A8BD9 /* FeedListUseCase.swift in Sources */,
 				0239D2C62077F7E700F70FEF /* Feed+Functions.swift in Sources */,

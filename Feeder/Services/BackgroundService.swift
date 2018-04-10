@@ -57,9 +57,14 @@ class BackgroundService {
          }
       })
       if let newStories = newStories, newStories.count > 0 {
+         sendNewStoryNotification()
          for story in newStories {
             coreDataManager.add(storyModel: story, for: databaseFeed)
          }
       }
+   }
+   
+   private func sendNewStoryNotification() {
+      NotificationService.shared.newStoryNotification(with: 5.0)
    }
 }
