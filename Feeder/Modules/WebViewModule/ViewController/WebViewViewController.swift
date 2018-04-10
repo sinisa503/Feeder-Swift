@@ -25,16 +25,10 @@ class WebViewViewController: UIViewController {
    override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       
-      if let unwrappedUrl = url {
-         if let url = URL(string: unwrappedUrl) {
-            let urlRequest = URLRequest(url: url)
-            webView.load(urlRequest)
-         }else {
-            showInvalidUrlAlert()
-         }
+      if Reachability.isConnectedToNetwork() {
+         loadUrl()
       }else {
-         activityIndicator(show: false)
-         showNoUrlAlert()
+         showNoNetworkAlert()
       }
    }
    
@@ -48,6 +42,19 @@ class WebViewViewController: UIViewController {
       }
    }
 
+   func loadUrl() {
+      if let unwrappedUrl = url {
+         if let url = URL(string: unwrappedUrl) {
+            let urlRequest = URLRequest(url: url)
+            webView.load(urlRequest)
+         }else {
+            showInvalidUrlAlert()
+         }
+      }else {
+         activityIndicator(show: false)
+         showNoUrlAlert()
+      }
+   }
    
    private func showNoUrlAlert() {
       let alert = UIAlertController(title: "Error", message: "Unable to load url", preferredStyle: .alert)
@@ -60,6 +67,14 @@ class WebViewViewController: UIViewController {
       let alert = UIAlertController(title: "Error", message: "Not valid url", preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "Ok", style: .default , handler: { _ in
          self.dismiss(animated: true, completion: nil)
+      }) )
+      self.present(alert, animated: true, completion: nil)
+   }
+   
+   private func showNoNetworkAlert() {
+      let alert = UIAlertController(title: "No network", message: "Network connection is necessary to load url", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+         self.activityIndicator(show: false)
       }) )
       self.present(alert, animated: true, completion: nil)
    }

@@ -35,11 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
    // Support for background fetch
    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-      
-      let backgroundService = BackgroundService()
-      backgroundService.checkUpdates(context: self.persistentContainer.viewContext)
-      //Tell the system that background fetch is performed
-      completionHandler(.newData)
+      if Reachability.isConnectedToNetwork(){
+         let backgroundService = BackgroundService()
+         backgroundService.checkUpdates(context: self.persistentContainer.viewContext)
+         //Tell the system that background fetch is performed
+         completionHandler(.newData)
+      }else {
+         completionHandler(.noData)
+      }
    }
 
 

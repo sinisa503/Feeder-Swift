@@ -36,4 +36,7 @@ class FeedListPresenter: FeedListPesentation {
    func showErrorAlert() {
       viewController?.showErrorAlert()
    }
+   func showNoNetworkAlert() {
+      viewController?.showNoNetworkAlert()
+   }
 }

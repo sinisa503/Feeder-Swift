@@ -72,9 +72,13 @@ class FeedListViewController: UITableViewController {
       
       actionViewController.addAction(UIAlertAction(title: "Cancel", style: .cancel , handler: nil))
       
-      actionViewController.addAction(UIAlertAction(title: "Save", style: .default , handler: { (action) in
+      actionViewController.addAction(UIAlertAction(title: "Save", style: .default , handler: {[weak self] (action) in
          if let urlTextField = actionViewController.textFields?.first, let url = urlTextField.text {
-            self.presenter?.saveFeed(url: url)
+            if Reachability.isConnectedToNetwork() {
+               self?.presenter?.saveFeed(url: url)
+            }else {
+               self?.presenter?.showNoNetworkAlert()
+            }
          }
       }) )
       self.present(actionViewController, animated: true, completion: nil)
@@ -122,6 +126,12 @@ extension FeedListViewController : NSFetchedResultsControllerDelegate {
 }
 
 extension FeedListViewController: FeedListView {
+   
+   func showNoNetworkAlert() {
+      let alert = UIAlertController(title: "No network", message: "Network connection is necessary to load the feed", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Ok", style: .default , handler:nil))
+      self.present(alert, animated: true, completion: nil)
+   }
    
    func showErrorAlert() {
       let alert = UIAlertController(title: "Error", message: "Not possible to load feed", preferredStyle: .alert)

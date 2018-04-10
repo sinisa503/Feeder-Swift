@@ -29,6 +29,7 @@
 		025236FB207C9C980029DC22 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025236FA207C9C980029DC22 /* NotificationService.swift */; };
 		026088E02077720C00DC57BC /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088DF2077720C00DC57BC /* ParseManager.swift */; };
 		026088EA2077BBAD00DC57BC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088E92077BBAD00DC57BC /* CoreDataManager.swift */; };
+		026DE78A207CB5DD0076DADD /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DE789207CB5DD0076DADD /* Reachability.swift */; };
 		02B6849C20761215002A8BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6849B20761215002A8BD9 /* AppDelegate.swift */; };
 		02B6849E20761215002A8BD9 /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6849D20761215002A8BD9 /* FeedListViewController.swift */; };
 		02B684A120761215002A8BD9 /* Stories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B6849F20761215002A8BD9 /* Stories.storyboard */; };
@@ -96,6 +97,7 @@
 		025236FA207C9C980029DC22 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		026088DF2077720C00DC57BC /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		026088E92077BBAD00DC57BC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		026DE789207CB5DD0076DADD /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		02B6849820761215002A8BD9 /* Feeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B6849B20761215002A8BD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02B6849D20761215002A8BD9 /* FeedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListViewController.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				0239D2CB2078E31A00F70FEF /* DownloadService.swift */,
 				025236F8207B785B0029DC22 /* BackgroundService.swift */,
 				025236FA207C9C980029DC22 /* NotificationService.swift */,
+				026DE789207CB5DD0076DADD /* Reachability.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 			files = (
 				0239D2EE207A37DC00F70FEF /* WebViewViewController.swift in Sources */,
 				02B684F12076485B002A8BD9 /* ViewPresentation.swift in Sources */,
+				026DE78A207CB5DD0076DADD /* Reachability.swift in Sources */,
 				02FFCA5220765AB3004AA345 /* FeedTableViewCell.swift in Sources */,
 				025236F9207B785B0029DC22 /* BackgroundService.swift in Sources */,
 				02B684E920761B8C002A8BD9 /* FeedListPesentation.swift in Sources */,
@@ -939,7 +943,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ADN69MSHGQ;
+				DEVELOPMENT_TEAM = P6XDXRR446;
 				INFOPLIST_FILE = "$(SRCROOT)/Feeder/ConvFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -959,7 +963,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ADN69MSHGQ;
+				DEVELOPMENT_TEAM = P6XDXRR446;
 				INFOPLIST_FILE = "$(SRCROOT)/Feeder/ConvFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
