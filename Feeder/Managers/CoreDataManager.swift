@@ -33,7 +33,7 @@ class CoreDataManager {
             //Initiate loading image for each story if there is one
             for story in feedModel.stories{
                if let imageUrl =  story.imageLink, let url = URL(string: imageUrl) {
-                  if let storyDao = getStory(with: story.url, or: story.title) {
+                  if let storyDao = getStory(withId: story.url, or: story.title) {
                      downloadService.downloadImage(from: url) { data in
                         if let imageData = data {
                            self.add(imageData: imageData, for: storyDao)
@@ -68,7 +68,7 @@ class CoreDataManager {
        Story.addNew(storyModel: storyModel, for: feed, context: context)
    }
    
-   func getStory(with uid:String?, or title:String?) -> Story? {
+   func getStory(withId uid:String?, or title:String?) -> Story? {
       let request:NSFetchRequest<Story> = Story.fetchRequest()
       var predicate:NSPredicate?
 

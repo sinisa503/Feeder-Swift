@@ -28,10 +28,10 @@ class NotificationService:NSObject {
       unCentar.delegate = self
    }
    
-   func newStoryNotification(with interval:TimeInterval)  {
+   func newStoryNotification(with interval:TimeInterval, title:String = "News arrived", body:String = "You have new articles waiting")  {
       let content = UNMutableNotificationContent()
-      content.title = "News arrived"
-      content.body = "You have new articles in your news feed"
+      content.title = title
+      content.body = body
       content.sound = .default()
       content.badge = 1
       

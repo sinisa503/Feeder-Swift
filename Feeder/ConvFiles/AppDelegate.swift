@@ -17,9 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       
-      //Authorize notification & set badge to 0
+      //Authorize notification
       NotificationService.shared.authorize()
-      UIApplication.shared.applicationIconBadgeNumber = 0
       
       // Set initial view controller
       window = UIWindow(frame: UIScreen.main.bounds)
@@ -31,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
       
       return true
+   }
+   
+   func applicationWillEnterForeground(_ application: UIApplication) {
+      //Remove badges from app icon
+      UIApplication.shared.applicationIconBadgeNumber = 0
    }
    
    // Support for background fetch

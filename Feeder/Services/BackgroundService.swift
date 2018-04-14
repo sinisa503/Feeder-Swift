@@ -57,14 +57,39 @@ class BackgroundService {
          }
       })
       if let newStories = newStories, newStories.count > 0 {
-         sendNewStoryNotification()
          for story in newStories {
             coreDataManager.add(storyModel: story, for: databaseFeed)
          }
+         sendNewStoryNotification(for: newStories, coreDataManger: coreDataManager)
       }
    }
    
-   private func sendNewStoryNotification() {
-      NotificationService.shared.newStoryNotification(with: 5.0)
+   private func sendNewStoryNotification(for storyModels:[StoryModel], coreDataManger:CoreDataManager) {
+      var feedDict:[Feed:String] = [:]
+      for story in storyModels {
+         if let uid = story.uid, let feed = coreDataManger.getFeedWith(uid: uid) {
+            feedDict.updateValue(uid, forKey: feed)
+         }
+      }
+      if feedDict.count == 1 {
+         if let title = feedDict.first?.key.title, let uid = feedDict.first?.value {
+            if let storyTitle = coreDataManger.getStory(withId: uid, or: nil)?.title {
+               NotificationService.shared.newStoryNotification(with: 5.0, title: title, body: storyTitle)
+            }else {
+               NotificationService.shared.newStoryNotification(with: 5.0, title: title)
+            }
+         }
+      }else if feedDict.count > 1 {
+         NotificationService.shared.newStoryNotification(with: 5.0)
+      }
    }
 }
+
+
+
+
+
+
+
+
+
