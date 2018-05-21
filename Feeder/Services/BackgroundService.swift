@@ -28,9 +28,7 @@ class BackgroundService {
                   }
                }else {
                   parseManager.parse(url: url) { refreshedFeed in
-                     if refreshedFeed?.uid == databaseFeed.uid {
-                        self.store(refreshedFeed: refreshedFeed, uniqueIds: uniqueIds, for: databaseFeed, coreDataManager: coreDataManager)
-                     }
+                     self.store(refreshedFeed: refreshedFeed, uniqueIds: uniqueIds, for: databaseFeed, coreDataManager: coreDataManager)
                   }
                }
             }
@@ -67,8 +65,10 @@ class BackgroundService {
    private func sendNewStoryNotification(for storyModels:[StoryModel], coreDataManger:CoreDataManager) {
       var feedDict:[Feed:String] = [:]
       for story in storyModels {
-         if let uid = story.uid, let feed = coreDataManger.getFeedWith(uid: uid) {
-            feedDict.updateValue(uid, forKey: feed)
+         if let uid = story.uid, let story = coreDataManger.getStory(withId: uid, or: nil) {
+            if let feed = story.feed {
+               feedDict.updateValue(uid, forKey: feed)
+            }
          }
       }
       if feedDict.count == 1 {
