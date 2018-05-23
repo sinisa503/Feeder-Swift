@@ -40,7 +40,7 @@ class FeedListViewController: UITableViewController {
    //MARK: Private functions
    
    private func setInitialFeeds() {
-      let default_urls:[String] = [Constant.HACKING_WITH_SWIFT_URL, Constant.SCIENCE_FEED]
+      let default_urls:[String] = [Constant.HACKING_WITH_SWIFT_URL]
       
       for defaultUrl in default_urls {
          addFeed(url: defaultUrl)

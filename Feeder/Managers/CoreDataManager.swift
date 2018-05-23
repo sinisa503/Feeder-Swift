@@ -126,6 +126,7 @@ class CoreDataManager {
          if let firstFeed = results.first {
             context.delete(firstFeed)
          }
+         try context.save()
       } catch let error {
          print("Error deleting a feed:\(error)")
       }
