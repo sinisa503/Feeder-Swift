@@ -18,11 +18,11 @@ class FeedListViewController: UITableViewController {
    //MARK: ViewController lifecycle
    override func viewDidLoad() {
       super.viewDidLoad()
+      
       presenter?.viewDidLoad()
-      
       tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: Constant.FEED_TABLE_VIEW_CELL_IDENTIFIER)
-      
       setFetchedResultsController()
+      setInitialFeeds()
    }
    
    override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +38,14 @@ class FeedListViewController: UITableViewController {
    }
    
    //MARK: Private functions
+   
+   private func setInitialFeeds() {
+      let default_urls:[String] = [Constant.HACKING_WITH_SWIFT_URL, Constant.SCIENCE_FEED]
+      
+      for defaultUrl in default_urls {
+         addFeed(url: defaultUrl)
+      }
+   }
    
    private func setFetchedResultsController() {
       let feedRequest:NSFetchRequest<Feed> = Feed.fetchRequest()
@@ -74,14 +82,18 @@ class FeedListViewController: UITableViewController {
       
       actionViewController.addAction(UIAlertAction(title: "Save", style: .default , handler: {[weak self] (action) in
          if let urlTextField = actionViewController.textFields?.first, let url = urlTextField.text {
-            if Reachability.isConnectedToNetwork() {
-               self?.presenter?.saveFeed(url: url)
-            }else {
-               self?.presenter?.showNoNetworkAlert()
-            }
+            self?.addFeed(url: url)
          }
       }) )
       self.present(actionViewController, animated: true, completion: nil)
+   }
+   
+   private func addFeed(url:String) {
+      if Reachability.isConnectedToNetwork() {
+         presenter?.saveFeed(url: url)
+      }else {
+         presenter?.showNoNetworkAlert()
+      }
    }
    
    //MARK: TableView Delegate & Datasource
@@ -116,6 +128,13 @@ class FeedListViewController: UITableViewController {
       }
    }
    
+   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+         if let feed = fetchedResultsController?.object(at: indexPath), let uid = feed.uid {
+            presenter?.deleteFeed(uid: uid)
+         }
+      }
+   }
 }
 
 extension FeedListViewController : NSFetchedResultsControllerDelegate {

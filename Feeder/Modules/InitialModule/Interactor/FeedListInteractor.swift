@@ -29,4 +29,11 @@ class FeedListInteractor: FeedListUseCase {
          }
       }
    }
+   
+   func deleteFeed(uid:String) {
+      if let context = context {
+         let coreDataManager = CoreDataManager(context: context)
+         coreDataManager.deleteFeed(with: uid)
+      }
+   }
 }

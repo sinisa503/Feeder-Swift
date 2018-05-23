@@ -76,6 +76,31 @@ class CoreDataTests: XCTestCase {
       }
    }
    
+   func testDeletingFeed() {
+      guard let coreDataManager = coreDataManager else {
+         XCTFail()
+         return
+      }
+      deleteAllFeedsFromDatabase()
+      let testFeedModel1 = constructFeedModel(number: 1)
+      storeToDatabase(feedModel: testFeedModel1)
+      if let feeds = coreDataManager.getAllFeeds() {
+         XCTAssertEqual(feeds.count, 1)
+      }else {
+         XCTFail("Error fetching feeds from Core Data")
+      }
+      if let uid = testFeedModel1.uid {
+         coreDataManager.deleteFeed(with: uid)
+      }else {
+         XCTFail()
+      }
+      if let allFeeds = coreDataManager.getAllFeeds() {
+         XCTAssertEqual(allFeeds.count, 0)
+      }else {
+         XCTFail()
+      }
+   }
+   
    func testAddingImageToCoreData() {
       guard let coreDataManager = coreDataManager else {
          XCTFail()

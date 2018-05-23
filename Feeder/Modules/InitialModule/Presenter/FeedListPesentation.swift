@@ -12,6 +12,7 @@ protocol FeedListPesentation: ViewPresentation {
    
    //Interactor
    func saveFeed(url:String)
+   func deleteFeed(uid:String)
    
    //Router
    func show(storiesVC: StoriesListViewController)

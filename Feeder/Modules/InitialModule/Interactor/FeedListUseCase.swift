@@ -10,4 +10,5 @@ import Foundation
 protocol FeedListUseCase: UseCase {
    
    func saveFeed(url:String)
+   func deleteFeed(uid:String)
 }

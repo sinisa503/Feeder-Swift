@@ -116,6 +116,21 @@ class CoreDataManager {
       }
    }
    
+   func deleteFeed(with uid: String) {
+      let request:NSFetchRequest<Feed> = Feed.fetchRequest()
+      let predicate = NSPredicate(format: "\(CoreDataConstant.UINIQE_ID_PROPERTY) == %@", uid)
+      request.predicate = predicate
+      
+      do {
+         let results = try context.fetch(request)
+         if let firstFeed = results.first {
+            context.delete(firstFeed)
+         }
+      } catch let error {
+         print("Error deleting a feed:\(error)")
+      }
+   }
+   
    func deleteAllFeeds(context:NSManagedObjectContext) {
       let request:NSFetchRequest<Feed> = Feed.fetchRequest()
       do {

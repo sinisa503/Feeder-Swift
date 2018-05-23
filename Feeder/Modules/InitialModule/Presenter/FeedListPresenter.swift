@@ -33,6 +33,10 @@ class FeedListPresenter: FeedListPesentation {
       interactor?.saveFeed(url: url)
    }
    
+   func deleteFeed(uid:String) {
+      interactor?.deleteFeed(uid: uid)
+   }
+   
    func showErrorAlert() {
       viewController?.showErrorAlert()
    }
