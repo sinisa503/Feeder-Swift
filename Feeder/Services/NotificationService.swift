@@ -36,12 +36,26 @@ class NotificationService:NSObject {
       content.badge = 1
       
       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
-      
       let request = UNNotificationRequest(identifier: "userNotivfication-timer", content: content, trigger: trigger)
       
       unCentar.add(request, withCompletionHandler: nil)
    }
    
+   func newStoryNotification(stories: [StoryModel])  {
+      for story in stories {
+         let content = UNMutableNotificationContent()
+         content.categoryIdentifier = "TIMER_EXPIRED"
+         content.title = story.title ?? "News arrived"
+         content.body = story.text ?? "You have new articles waiting"
+         content.userInfo = ["url":story.url ?? ""]
+         content.sound = .default()
+         content.badge = 1
+         
+         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5.0, repeats: false)
+         let request = UNNotificationRequest(identifier: "userNotivfication-timer", content: content, trigger: trigger)
+         unCentar.add(request, withCompletionHandler: nil)
+      }
+   }
 }
 
 extension NotificationService: UNUserNotificationCenterDelegate {
