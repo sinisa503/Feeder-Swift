@@ -28,6 +28,7 @@
 		025236F9207B785B0029DC22 /* BackgroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025236F8207B785B0029DC22 /* BackgroundService.swift */; };
 		025236FB207C9C980029DC22 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025236FA207C9C980029DC22 /* NotificationService.swift */; };
 		02568C0020BC699E005FDF5E /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02568BFF20BC699E005FDF5E /* Date+Ext.swift */; };
+		02568C0220BC806A005FDF5E /* UIView-Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02568C0120BC806A005FDF5E /* UIView-Ext.swift */; };
 		026088E02077720C00DC57BC /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088DF2077720C00DC57BC /* ParseManager.swift */; };
 		026088EA2077BBAD00DC57BC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088E92077BBAD00DC57BC /* CoreDataManager.swift */; };
 		026DE78A207CB5DD0076DADD /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DE789207CB5DD0076DADD /* Reachability.swift */; };
@@ -97,6 +98,7 @@
 		025236F8207B785B0029DC22 /* BackgroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundService.swift; sourceTree = "<group>"; };
 		025236FA207C9C980029DC22 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		02568BFF20BC699E005FDF5E /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		02568C0120BC806A005FDF5E /* UIView-Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Ext.swift"; sourceTree = "<group>"; };
 		026088DF2077720C00DC57BC /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		026088E92077BBAD00DC57BC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		026DE789207CB5DD0076DADD /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 			children = (
 				02FFCA5720766230004AA345 /* UIColor+Extension.swift */,
 				02568BFF20BC699E005FDF5E /* Date+Ext.swift */,
+				02568C0120BC806A005FDF5E /* UIView-Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				02B684E520761B69002A8BD9 /* FeedListWireframe.swift in Sources */,
 				0239D2CC2078E31A00F70FEF /* DownloadService.swift in Sources */,
 				02B684A420761215002A8BD9 /* Feeder.xcdatamodeld in Sources */,
+				02568C0220BC806A005FDF5E /* UIView-Ext.swift in Sources */,
 				0239D2DB2079693D00F70FEF /* FeedListView.swift in Sources */,
 				02B684F520764A0E002A8BD9 /* UseCase.swift in Sources */,
 				0239D2D5207966DA00F70FEF /* StoriesListBuilder.swift in Sources */,

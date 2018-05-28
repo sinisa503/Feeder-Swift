@@ -33,6 +33,13 @@ class FeedTableViewCell: UITableViewCell {
 
     }
    
+   override func prepareForReuse() {
+      super.prepareForReuse()
+      storyImageView.image = nil
+      storyTextView.text = ""
+      storyTitleView.text = ""
+   }
+   
    public func configureCell(with model:Feed) {
       if let imageData = model.image {
          storyImageView.image = UIImage(data: imageData)

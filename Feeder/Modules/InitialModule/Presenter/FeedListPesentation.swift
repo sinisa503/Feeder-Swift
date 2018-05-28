@@ -20,4 +20,5 @@ protocol FeedListPesentation: ViewPresentation {
    //View
    func showErrorAlert()
    func showNoNetworkAlert()
+   func showToast(message:String)
 }

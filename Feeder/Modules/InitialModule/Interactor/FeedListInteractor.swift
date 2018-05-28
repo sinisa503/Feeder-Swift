@@ -21,7 +21,11 @@ class FeedListInteractor: FeedListUseCase {
             if let feedModel = feedModel {
                if let context = self?.context {
                   let coreDataManager = CoreDataManager(context: context)
-                  coreDataManager.addNew(feedModel: feedModel)
+                  coreDataManager.addNew(feedModel: feedModel, success: { success in
+                     if success {
+                        self?.presenter?.showToast(message: "New feed added")
+                     }
+                  })
                }
             }else {
                self?.presenter?.showErrorAlert()

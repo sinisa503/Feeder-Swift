@@ -13,6 +13,7 @@ import CoreData
 class FeedListViewController: UITableViewController {
 
    var presenter: FeedListPesentation?
+   var url:String?
    fileprivate var fetchedResultsController:NSFetchedResultsController<Feed>?
    
    //MARK: ViewController lifecycle
@@ -35,6 +36,7 @@ class FeedListViewController: UITableViewController {
    override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
       presenter?.viewWillDisapear()
+      url = nil
    }
    
    //MARK: Private functions
@@ -44,6 +46,10 @@ class FeedListViewController: UITableViewController {
       
       for defaultUrl in default_urls {
          addFeed(url: defaultUrl)
+      }
+      
+      if let urlFromSafari = url {
+         addFeed(url: urlFromSafari)
       }
    }
    
@@ -94,6 +100,10 @@ class FeedListViewController: UITableViewController {
       }else {
          presenter?.showNoNetworkAlert()
       }
+   }
+   
+   func showToast(message:String) {
+      self.view.showToast(message: message)
    }
    
    //MARK: TableView Delegate & Datasource

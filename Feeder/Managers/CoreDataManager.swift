@@ -18,7 +18,7 @@ class CoreDataManager {
       self.context = context
    }
    
-   func addNew(feedModel:FeedModel) {
+   func addNew(feedModel:FeedModel, success:(Bool)->()) {
          if let feed = Feed.addNew(feedModel: feedModel, context: context), feed.image == nil {
             
             //Initiate loading Feed image if there is one
@@ -42,6 +42,7 @@ class CoreDataManager {
                   }
                }
             }
+            success(true)
          }
    }
    

@@ -10,7 +10,7 @@ import UIKit
 
 class InitialListBuilder {
    
-   static func buildInitialListModule() -> UIViewController {
+   static func buildInitialListModule(url: String? = nil) -> UIViewController {
       
       let navigationController = UINavigationController()
       let viewController = FeedListViewController()
@@ -19,6 +19,7 @@ class InitialListBuilder {
       let interactor = FeedListInteractor()
       
       viewController.presenter = presenter
+      viewController.url = url
       presenter.viewController = viewController
       presenter.router = router
       presenter.interactor = interactor

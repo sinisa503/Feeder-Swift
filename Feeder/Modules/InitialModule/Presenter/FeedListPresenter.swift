@@ -43,4 +43,7 @@ class FeedListPresenter: FeedListPesentation {
    func showNoNetworkAlert() {
       viewController?.showNoNetworkAlert()
    }
+   func showToast(message:String) {
+      viewController?.showToast(message: message)
+   }
 }

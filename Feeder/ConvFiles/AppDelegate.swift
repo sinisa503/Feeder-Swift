@@ -32,6 +32,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return true
    }
    
+   func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+      print(url.debugDescription)
+      if url.absoluteString.starts(with: "feed:") {
+         let feedUrl = String(url.absoluteString.dropFirst(5))
+         if let _ = URL(string: feedUrl) {
+            window = UIWindow(frame: UIScreen.main.bounds)
+            let initialViewController = InitialListBuilder.buildInitialListModule(url: feedUrl)
+            window?.rootViewController = initialViewController
+            window?.makeKeyAndVisible()
+         }
+      }
+      return true
+   }
+   
    func applicationWillEnterForeground(_ application: UIApplication) {
       //Remove badges from app icon
       UIApplication.shared.applicationIconBadgeNumber = 0

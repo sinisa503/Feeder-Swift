@@ -13,4 +13,5 @@ protocol FeedListView {
    var presenter: FeedListPesentation? { get set }
    func showErrorAlert()
    func showNoNetworkAlert()
+   func showToast(message:String)
 }
