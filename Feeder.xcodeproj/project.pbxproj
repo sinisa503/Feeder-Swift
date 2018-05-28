@@ -27,6 +27,7 @@
 		025236F7207B5AB10029DC22 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025236F6207B5AB10029DC22 /* CoreDataTests.swift */; };
 		025236F9207B785B0029DC22 /* BackgroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025236F8207B785B0029DC22 /* BackgroundService.swift */; };
 		025236FB207C9C980029DC22 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025236FA207C9C980029DC22 /* NotificationService.swift */; };
+		02568C0020BC699E005FDF5E /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02568BFF20BC699E005FDF5E /* Date+Ext.swift */; };
 		026088E02077720C00DC57BC /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088DF2077720C00DC57BC /* ParseManager.swift */; };
 		026088EA2077BBAD00DC57BC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026088E92077BBAD00DC57BC /* CoreDataManager.swift */; };
 		026DE78A207CB5DD0076DADD /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DE789207CB5DD0076DADD /* Reachability.swift */; };
@@ -95,6 +96,7 @@
 		025236F6207B5AB10029DC22 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		025236F8207B785B0029DC22 /* BackgroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundService.swift; sourceTree = "<group>"; };
 		025236FA207C9C980029DC22 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		02568BFF20BC699E005FDF5E /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		026088DF2077720C00DC57BC /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		026088E92077BBAD00DC57BC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		026DE789207CB5DD0076DADD /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				02FFCA5720766230004AA345 /* UIColor+Extension.swift */,
+				02568BFF20BC699E005FDF5E /* Date+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				02B684E020761AB9002A8BD9 /* FeedListPresenter.swift in Sources */,
 				0239D2E720796BC700F70FEF /* StoriesListWireframe.swift in Sources */,
 				02FFCA5B2076B4C8004AA345 /* FeedModel.swift in Sources */,
+				02568C0020BC699E005FDF5E /* Date+Ext.swift in Sources */,
 				02B684DA20761A92002A8BD9 /* InitialListBuilder.swift in Sources */,
 				026088E02077720C00DC57BC /* ParseManager.swift in Sources */,
 				0239D2CA2078096300F70FEF /* Story+Functions.swift in Sources */,
@@ -954,7 +958,10 @@
 				DEVELOPMENT_TEAM = P6XDXRR446;
 				INFOPLIST_FILE = "$(SRCROOT)/Feeder/ConvFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sinisa.feeder.Feeder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -971,7 +978,10 @@
 				DEVELOPMENT_TEAM = P6XDXRR446;
 				INFOPLIST_FILE = "$(SRCROOT)/Feeder/ConvFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sinisa.feeder.Feeder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -988,7 +998,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P6XDXRR446;
 				INFOPLIST_FILE = FeederTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sinisa.feeder.FeederTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1006,7 +1020,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P6XDXRR446;
 				INFOPLIST_FILE = FeederTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sinisa.feeder.FeederTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1023,7 +1041,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P6XDXRR446;
 				INFOPLIST_FILE = FeederUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sinisa.feeder.FeederUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1040,7 +1062,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P6XDXRR446;
 				INFOPLIST_FILE = FeederUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sinisa.feeder.FeederUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

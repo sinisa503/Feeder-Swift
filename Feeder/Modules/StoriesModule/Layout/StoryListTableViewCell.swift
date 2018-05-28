@@ -23,9 +23,15 @@ class StoryListTableViewCell: UITableViewCell {
 
       if let date = story.publishDate {
          let dateFormatter = DateFormatter()
-         dateFormatter.dateFormat = "MM/dd/yyyy"
-         let dateString = dateFormatter.string(from: date)
-         dateLabel.text = dateString
+         if date.isToday() {
+            dateFormatter.dateFormat = "HH:mm"
+            let dateString = dateFormatter.string(from: date)
+            dateLabel.text = "Today \(dateString)"
+         }else {
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let dateString = dateFormatter.string(from: date)
+            dateLabel.text = dateString
+         }
       }else {
          dateLabel.text = ""
       }
