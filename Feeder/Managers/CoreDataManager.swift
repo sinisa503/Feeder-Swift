@@ -128,8 +128,8 @@ class CoreDataManager {
             context.delete(firstFeed)
          }
          try context.save()
-      } catch let error {
-         print("Error deleting a feed:\(error)")
+      } catch {
+         //TODO: Handle error
       }
    }
    
@@ -142,7 +142,7 @@ class CoreDataManager {
          }
          try context.save()
       } catch  {
-         
+         //TODO: Handle error
       }
    }
 }

@@ -204,7 +204,11 @@ class CoreDataTests: XCTestCase {
          XCTFail()
          return
       }
-      coreDataManager.addNew(feedModel: feedModel)
+      coreDataManager.addNew(feedModel: feedModel, success: { success in
+         if !success {
+            XCTFail()
+         }
+      })
    }
    
    private func constructFeedModel(number:Int, imageUrl:String? = nil) -> FeedModel {

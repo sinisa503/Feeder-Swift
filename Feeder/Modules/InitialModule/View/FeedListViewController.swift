@@ -63,8 +63,8 @@ class FeedListViewController: UITableViewController {
          fetchedResultsController?.delegate = self
          do {
             try fetchedResultsController?.performFetch()
-         }catch let error {
-            print("Error fetching from CoreData: \(error.localizedDescription)")
+         }catch {
+            presenter?.showErrorAlert()
          }
       }
    }
