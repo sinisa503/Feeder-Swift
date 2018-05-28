@@ -10,6 +10,8 @@ import UIKit
 
 class StoryListTableViewCell: UITableViewCell {
    
+   static let IDENTIFIER = "StoryListTableViewCell"
+   
    @IBOutlet weak var storyImage: UIImageView!
    @IBOutlet weak var titleLabel: UILabel!
    @IBOutlet weak var dateLabel: UILabel!

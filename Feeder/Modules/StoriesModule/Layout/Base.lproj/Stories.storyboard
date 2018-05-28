@@ -76,10 +76,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="txx-dc-JKb" id="ABV-xL-XiI"/>
-                                    <outlet property="delegate" destination="txx-dc-JKb" id="QNb-Ee-tS5"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

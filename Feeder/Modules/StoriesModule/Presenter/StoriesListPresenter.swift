@@ -11,6 +11,7 @@ import UIKit
 class StoriesListPresenter: StoriesListPresentation {
    
    weak var viewController: UIViewController?
+   var router: StoriesListWireframe?
    
    func viewDidLoad() {
       
@@ -24,5 +25,7 @@ class StoriesListPresenter: StoriesListPresentation {
       
    }
    
-   
+   func showStory() {
+      router?.showStory()
+   }
 }

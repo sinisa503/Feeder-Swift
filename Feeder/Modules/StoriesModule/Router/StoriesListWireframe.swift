@@ -10,4 +10,5 @@ import Foundation
 
 protocol StoriesListWireframe :Wireframe {
    
+   func showStory()
 }

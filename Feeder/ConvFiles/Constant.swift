@@ -13,7 +13,6 @@ struct Constant {
    static let STORIES_STORYBOARD_NAME = "Stories"
    static let STORIES_LIST_CONTROLLER_IDENTIFIER = "StoriesListViewController"
    static let FEED_TABLE_VIEW_CELL_IDENTIFIER = "FeedTableViewCell"
-   static let STORIES_TABLE_VIEW_CELL_IDENTIFIER = "StoryListTableViewCell"
    static let NEWS_TITLE = "News"
    static let cellHeight:CGFloat = CGFloat(150)
    

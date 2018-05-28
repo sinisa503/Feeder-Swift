@@ -11,5 +11,9 @@ import UIKit
 class StoriesListRouter: StoriesListWireframe {
    var viewController: UIViewController?
    
-   
+   func showStory() {
+      if let storiesListViewController = viewController as? StoriesListViewController {
+         storiesListViewController.showStory()
+      }
+   }
 }

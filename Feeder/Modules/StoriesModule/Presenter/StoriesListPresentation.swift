@@ -10,4 +10,5 @@ import Foundation
 
 protocol StoriesListPresentation: ViewPresentation {
    
+   func showStory()
 }

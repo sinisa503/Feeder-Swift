@@ -24,10 +24,11 @@ class StoriesListBuilder {
          
          storiesListVC.presenter = presenter
          presenter.viewController = storiesListVC
+         presenter.router = router
          router.viewController = storiesListVC
          interactor.presenter = presenter
          
-         storiesListVC.listOfStories = listOfStories
+         storiesListVC.listOfStories.value = listOfStories
          
          return storiesListVC
       }

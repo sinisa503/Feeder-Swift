@@ -7,47 +7,53 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class StoriesListViewController: UIViewController {
    
    var presenter: StoriesListPresentation?
-   var listOfStories:[Story]?
+   var listOfStories:Variable<[Story]> = Variable([])
+   private let disposeBag = DisposeBag()
    
    private var selectedStoryUrl:String?
    
    @IBOutlet weak var tableView: UITableView!
+   
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      
+      setupCellConfiguration()
+      setUpTableRowTap()
+   }
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if let webViewController = segue.destination as? WebViewViewController {
          webViewController.url = selectedStoryUrl
       }
     }
-}
-
-extension StoriesListViewController: UITableViewDelegate, UITableViewDataSource {
    
-   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return listOfStories?.count ?? 0
-   }
-   
-   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      if let cell = tableView.dequeueReusableCell(withIdentifier: Constant.STORIES_TABLE_VIEW_CELL_IDENTIFIER) as? StoryListTableViewCell {
-         if let listOfStories = listOfStories {
-            cell.configure(with: listOfStories[indexPath.row])
-         }
-         return cell
-      }else {
-         return UITableViewCell()
+   private func setupCellConfiguration() {
+      listOfStories.asObservable().bind(to: tableView.rx
+         .items(cellIdentifier: StoryListTableViewCell.IDENTIFIER,
+                cellType: StoryListTableViewCell.self)) { row,story,cell in
+            cell.configure(with: story)
       }
+      .disposed(by: disposeBag)
    }
    
-   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      if let storyList = listOfStories {
-         if let url = storyList[indexPath.row].url {
-            selectedStoryUrl = url
-         }
-         performSegue(withIdentifier: Constant.SHOW_STORY_SEGUEI, sender: self)
-      }
+   private func setUpTableRowTap() {
+      tableView.rx.modelSelected(Story.self)
+         .subscribe(onNext: {[weak self] story in
+            if let url = story.url {
+               self?.selectedStoryUrl = url
+               self?.presenter?.showStory()
+            }
+         })
+         .disposed(by: disposeBag)
    }
    
+   func showStory() {
+      performSegue(withIdentifier: Constant.SHOW_STORY_SEGUEI, sender: self)
+   }
 }

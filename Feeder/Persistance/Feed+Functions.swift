@@ -50,32 +50,32 @@ extension Feed {
       return nil
    }
    
-   static func refresh(feedModel:FeedModel,context:NSManagedObjectContext, success:(Bool)->()) {
-      let request:NSFetchRequest<Feed> = Feed.fetchRequest()
-      
-      if let uid = feedModel.uid {
-         request.predicate = NSPredicate(format: "\(CoreDataConstant.UINIQE_ID_PROPERTY) = %@", uid)
-      }
-      
-      do {
-         //Delete old feed
-         let feeds = try context.fetch(request)
-         if let feed = feeds.first {
-            delete(feed: feed, context: context)
-            //Add refreshed feed
-            if let _ = addNew(feedModel: feedModel, context: context) {
-               success(true)
-            }else {
-               success(false)
-            }
-         }else {
-            success(false)
-         }
-      } catch _ {
-         success(false)
-      }
-      
-   }
+//   static func refresh(feedModel:FeedModel,context:NSManagedObjectContext, success:(Bool)->()) {
+//      let request:NSFetchRequest<Feed> = Feed.fetchRequest()
+//      
+//      if let uid = feedModel.uid {
+//         request.predicate = NSPredicate(format: "\(CoreDataConstant.UINIQE_ID_PROPERTY) = %@", uid)
+//      }
+//      
+//      do {
+//         //Delete old feed
+//         let feeds = try context.fetch(request)
+//         if let feed = feeds.first {
+//            delete(feed: feed, context: context)
+//            //Add refreshed feed
+//            if let _ = addNew(feedModel: feedModel, context: context) {
+//               success(true)
+//            }else {
+//               success(false)
+//            }
+//         }else {
+//            success(false)
+//         }
+//      } catch _ {
+//         success(false)
+//      }
+//      
+//   }
    
    static func delete(feed: Feed, context:NSManagedObjectContext) {
       context.delete(feed)
