@@ -23,6 +23,7 @@ class StoriesListViewController: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+      sortStories()
       setupCellConfiguration()
       setUpTableRowTap()
    }
@@ -49,8 +50,18 @@ class StoriesListViewController: UIViewController {
                self?.selectedStoryUrl = url
                self?.presenter?.showStory()
             }
+            if let selectedRowIndexPath = self?.tableView.indexPathForSelectedRow {
+               self?.tableView.deselectRow(at: selectedRowIndexPath, animated: true)
+            }
          })
          .disposed(by: disposeBag)
+   }
+   
+   private func sortStories() {
+      listOfStories.value.sort { (firstStory, secondStory) -> Bool in
+         guard let firstDate = firstStory.publishDate, let secondDate = secondStory.publishDate else { return true }
+         return firstDate > secondDate
+      }
    }
    
    func showStory() {

@@ -20,7 +20,7 @@ class FeedListViewController: UITableViewController {
       super.viewDidLoad()
       
       presenter?.viewDidLoad()
-      tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: Constant.FEED_TABLE_VIEW_CELL_IDENTIFIER)
+      tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: FeedTableViewCell.IDENTIFIER)
       setFetchedResultsController()
       setInitialFeeds()
    }
@@ -98,7 +98,7 @@ class FeedListViewController: UITableViewController {
    
    //MARK: TableView Delegate & Datasource
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      if let cell = tableView.dequeueReusableCell(withIdentifier: Constant.FEED_TABLE_VIEW_CELL_IDENTIFIER, for: indexPath) as? FeedTableViewCell {
+      if let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.IDENTIFIER, for: indexPath) as? FeedTableViewCell {
 
          if let feed = fetchedResultsController?.object(at: indexPath) {
             cell.configureCell(with: feed)

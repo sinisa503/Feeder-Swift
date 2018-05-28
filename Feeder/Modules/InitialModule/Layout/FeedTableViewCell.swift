@@ -10,6 +10,8 @@ import UIKit
 
 class FeedTableViewCell: UITableViewCell {
    
+   static let IDENTIFIER = "FeedTableViewCell"
+   
    private var storyImageView:UIImageView = UIImageView()
    private var storyTextView: UILabel = UILabel()
    private var storyTitleView: UILabel = UILabel()
@@ -22,7 +24,7 @@ class FeedTableViewCell: UITableViewCell {
    }
    
    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-      super.init(style: style, reuseIdentifier: Constant.FEED_TABLE_VIEW_CELL_IDENTIFIER)
+      super.init(style: style, reuseIdentifier: FeedTableViewCell.IDENTIFIER)
       setUpOutlets()
    }
 

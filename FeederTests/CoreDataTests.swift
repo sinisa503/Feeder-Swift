@@ -76,6 +76,30 @@ class CoreDataTests: XCTestCase {
       }
    }
    
+   func testAddingNewStoryToDatabase() {
+      guard let coreDataManager = coreDataManager else {
+         XCTFail()
+         return
+      }
+      deleteAllFeedsFromDatabase()
+      XCTAssertEqual(coreDataManager.getAllFeeds()?.count, 0)
+      let testFeedModel1 = constructFeedModel(number: 1)
+      storeToDatabase(feedModel: testFeedModel1)
+      XCTAssertEqual(coreDataManager.getAllFeeds()?.count, 1)
+      if let testModelFromDatabase = coreDataManager.getAllFeeds()?.first {
+         XCTAssertNotNil(testModelFromDatabase.stories)
+         XCTAssertEqual(testModelFromDatabase.stories?.count, 5)
+         let testStory12 = constructStoryModel(number: 12)
+         coreDataManager.add(storyModel: testStory12, for: testModelFromDatabase)
+         if let testModelFromDatabase = coreDataManager.getAllFeeds()?.first {
+            XCTAssertNotNil(testModelFromDatabase.stories)
+            XCTAssertEqual(testModelFromDatabase.stories?.count, 6)
+         }
+      }else {
+         XCTFail()
+      }
+   }
+   
    func testDeletingFeed() {
       guard let coreDataManager = coreDataManager else {
          XCTFail()
@@ -194,6 +218,18 @@ class CoreDataTests: XCTestCase {
       testFeedModel.stories = getTestArrayOfStories()
       
       return testFeedModel
+   }
+   
+   private func constructStoryModel(number:Int, imageUrl:String? = nil) -> StoryModel {
+      let testStoryModel = StoryModel()
+      testStoryModel.title = "Story\(number) Title"
+      testStoryModel.text = "Story\(number) Desc"
+      testStoryModel.imageLink = imageUrl
+      testStoryModel.publishDate = Date()
+      testStoryModel.uid = "testStory\(number)UniqueIdString"
+      testStoryModel.url = "story\(number)TestUrl"
+      
+      return testStoryModel
    }
    
    private func getTestArrayOfStories()->[StoryModel] {
