@@ -11,7 +11,7 @@ import Foundation
 protocol FeedListView {
    
    var presenter: FeedListPesentation? { get set }
-   func showErrorAlert()
+   func showErrorAlert(title:String, message:String)
    func showNoNetworkAlert()
    func showToast(message:String)
 }

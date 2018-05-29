@@ -64,7 +64,7 @@ class FeedListViewController: UITableViewController {
          do {
             try fetchedResultsController?.performFetch()
          }catch {
-            presenter?.showErrorAlert()
+            presenter?.showErrorAlert(title: "Error", message: "Fetching from database failed")
          }
       }
    }
@@ -162,8 +162,8 @@ extension FeedListViewController: FeedListView {
       self.present(alert, animated: true, completion: nil)
    }
    
-   func showErrorAlert() {
-      let alert = UIAlertController(title: "Error", message: "Not possible to load feed", preferredStyle: .alert)
+   func showErrorAlert(title:String, message:String) {
+      let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "Ok", style: .default , handler:nil))
       self.present(alert, animated: true, completion: nil)
    }

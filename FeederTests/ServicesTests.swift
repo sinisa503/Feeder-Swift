@@ -29,11 +29,15 @@ class ServicesTests: XCTestCase {
       if let downloadService = downloadService {
          if let url = URL(string: testImageUrl) {
          let expecation = expectation(description: "Expected load imagefrom web")
-            downloadService.downloadImage(from: url) { data in
-               expecation.fulfill()
-               XCTAssertNotNil(data,"No data downloaded")
+            if Reachability.isConnectedToNetwork() {
+               downloadService.downloadImage(from: url) { data in
+                  expecation.fulfill()
+                  XCTAssertNotNil(data,"No data downloaded")
+               }
+               waitForExpectations(timeout: 5.0,handler:nil)
+            }else {
+               print("NOT POSSIBLE TO DO DOWNLOAD TEST!!! No internet connection...")
             }
-            waitForExpectations(timeout: 5.0,handler:nil)
          }else {
             XCTFail("URL not valid")
          }

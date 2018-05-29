@@ -28,7 +28,7 @@ class FeedListInteractor: FeedListUseCase {
                   })
                }
             }else {
-               self?.presenter?.showErrorAlert()
+               self?.presenter?.showErrorAlert(title: "Error", message: "Error parsing feed")
             }
          }
       }

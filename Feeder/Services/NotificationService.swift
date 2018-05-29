@@ -81,7 +81,11 @@ extension NotificationService: UNUserNotificationCenterDelegate {
       
       if response.notification.request.identifier.contains(FEEDER_NOTIF_IDENTIFIER) {
          if let url = response.notification.request.content.userInfo[URL_NOTIF_KEY] {
+            /**
+             This notification delegate is not getting called on notification click
+             TODO: Find out what is the cause of this
             print(url)
+            **/
          }
       }
       completionHandler()

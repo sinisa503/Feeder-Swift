@@ -18,7 +18,7 @@ protocol FeedListPesentation: ViewPresentation {
    func show(storiesVC: StoriesListViewController)
    
    //View
-   func showErrorAlert()
+   func showErrorAlert(title:String, message:String)
    func showNoNetworkAlert()
    func showToast(message:String)
 }

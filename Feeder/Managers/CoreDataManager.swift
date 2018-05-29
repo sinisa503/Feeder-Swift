@@ -20,7 +20,7 @@ class CoreDataManager {
    
    func addNew(feedModel:FeedModel, success:(Bool)->()) {
          if let feed = Feed.addNew(feedModel: feedModel, context: context), feed.image == nil {
-            
+
             //Initiate loading Feed image if there is one
             if let urlString = feedModel.imageUrl, let url = URL(string: urlString) {
                downloadService.downloadImage(from: url) { data in
@@ -29,7 +29,7 @@ class CoreDataManager {
                   }
                }
             }
-            
+
             //Initiate loading image for each story if there is one
             for story in feedModel.stories{
                if let imageUrl =  story.imageLink, let url = URL(string: imageUrl) {
@@ -51,8 +51,8 @@ class CoreDataManager {
       story.setValue(imageData, forKey: CoreDataConstant.STORY_IMAGE_PROPERTY)
       do {
          try context.save()
-      } catch {
-         //TODO: Handle error
+      } catch let error{
+         //TODO: Handle this error
       }
    }
    
@@ -61,7 +61,7 @@ class CoreDataManager {
       do {
          try context.save()
       } catch {
-         //TODO: Handle error
+         //TODO: Handle this error
       }
    }
    
@@ -84,7 +84,7 @@ class CoreDataManager {
             return results.first
          }
       } catch  {
-         //TODO: Handle error
+         //TODO: Handle this error
       }
       return nil
    }
@@ -92,19 +92,19 @@ class CoreDataManager {
    func getFeedWith(uid:String?) -> Feed? {
       let request:NSFetchRequest<Feed> = Feed.fetchRequest()
       var predicate:NSPredicate?
-      
+
       if let uid = uid {
          predicate = NSPredicate(format: "\(CoreDataConstant.UINIQE_ID_PROPERTY) == %@", uid)
       }
       request.predicate = predicate
-      
+
       do {
          let results = try context.fetch(request)
          if results.count > 0 {
             return results.first
          }
       } catch  {
-         //TODO: Handle error
+         //TODO: Handle this error
       }
       return nil
    }
@@ -129,7 +129,7 @@ class CoreDataManager {
          }
          try context.save()
       } catch {
-         //TODO: Handle error
+         //TODO: Handle this error
       }
    }
    
@@ -141,8 +141,8 @@ class CoreDataManager {
             context.delete(feed)
          }
          try context.save()
-      } catch  {
-         //TODO: Handle error
+      } catch {
+         //TODO: Handle this error
       }
    }
 }

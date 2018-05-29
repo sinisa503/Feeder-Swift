@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
       //Authorize notification
       NotificationService.shared.authorize()
-      
+      /**
+       To be used to debugg Core Data - Printing simulator database location
+      debugPrint(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+      **/
       // Set initial view controller
       window = UIWindow(frame: UIScreen.main.bounds)
       let initialViewController = InitialListBuilder.buildInitialListModule()

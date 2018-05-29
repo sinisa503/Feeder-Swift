@@ -37,8 +37,8 @@ class FeedListPresenter: FeedListPesentation {
       interactor?.deleteFeed(uid: uid)
    }
    
-   func showErrorAlert() {
-      viewController?.showErrorAlert()
+   func showErrorAlert(title:String, message:String) {
+      viewController?.showErrorAlert(title:title, message:message)
    }
    func showNoNetworkAlert() {
       viewController?.showNoNetworkAlert()

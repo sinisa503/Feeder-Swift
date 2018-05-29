@@ -21,6 +21,11 @@ extension Story {
          story.url = storyModel.url
          story.uid = storyModel.uid
          feed.addToStories(story)
+         do {
+            try context.save()
+         }catch {
+            
+         }
       }
    }
 }

@@ -44,18 +44,17 @@ extension Feed {
             }
          }
       } catch _ {
-         //TODO: Handle this error
          return nil
       }
       return nil
    }
    
-   static func delete(feed: Feed, context:NSManagedObjectContext) {
+   static func delete(feed: Feed, context:NSManagedObjectContext, completion:(Error?)->()) {
       context.delete(feed)
       do {
          try context.save()
-      } catch _ {
-         //TODO: Handle this error
+      } catch let error {
+         completion(error)
       }
    }
    
@@ -64,7 +63,6 @@ extension Feed {
       do {
          return try context.fetch(request)
       } catch _ {
-         //TODO: Handle this error
          return nil
       }
    }
