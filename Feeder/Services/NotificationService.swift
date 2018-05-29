@@ -43,18 +43,33 @@ class NotificationService:NSObject {
    }
    
    func newStoryNotification(stories: [StoryModel])  {
-      for (index, story) in stories.enumerated() {
+      //No more than two notifications in one fetch
+      if stories.count <= 2 {
+         for (index, story) in stories.enumerated() {
+            let content = UNMutableNotificationContent()
+            content.categoryIdentifier = "TIMER_EXPIRED"
+            content.title = story.title ?? "News arrived"
+            content.body = story.text ?? "You have new articles waiting"
+            content.userInfo = [URL_NOTIF_KEY:story.url ?? ""]
+            content.sound = .default()
+            content.badge = 1
+            
+            let timeInterval = TimeInterval(5 * (index + 1))
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval ,repeats: false)
+            let request = UNNotificationRequest(identifier: "\(FEEDER_NOTIF_IDENTIFIER)\(index)", content: content, trigger: trigger)
+            unCentar.add(request, withCompletionHandler: nil)
+         }
+      }else {
          let content = UNMutableNotificationContent()
          content.categoryIdentifier = "TIMER_EXPIRED"
-         content.title = story.title ?? "News arrived"
-         content.body = story.text ?? "You have new articles waiting"
-         content.userInfo = [URL_NOTIF_KEY:story.url ?? ""]
+         content.title = "News arrived!"
+         content.body = "You have new articles waiting"
          content.sound = .default()
          content.badge = 1
-
-         let timeInterval = TimeInterval(5 * (index + 1))
+         
+         let timeInterval = TimeInterval(5)
          let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval ,repeats: false)
-         let request = UNNotificationRequest(identifier: "\(FEEDER_NOTIF_IDENTIFIER)\(index)", content: content, trigger: trigger)
+         let request = UNNotificationRequest(identifier: FEEDER_NOTIF_IDENTIFIER, content: content, trigger: trigger)
          unCentar.add(request, withCompletionHandler: nil)
       }
    }
